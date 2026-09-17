@@ -1,0 +1,7 @@
+# Override BCR with local repo, and put it back to ensure priority.
+common --registry=file://%workspace%/bazel
+common --registry=https://bcr.bazel.build
+
+
+# Always output results of all failing tests.
+common --test_output=errors
