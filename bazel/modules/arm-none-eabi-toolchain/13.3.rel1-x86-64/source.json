@@ -1,0 +1,9 @@
+{
+  "archive_type": "tar.xz",
+  "url": "https://gitlab.arm.com/api/v4/projects/tooling%2Fgnu-toolchains-for-arm/packages/generic/gnu-toolchain/13.3.rel1/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz",
+  "strip_prefix": "arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi",
+  "integrity": "sha256-lcARzuQw5k3WCHx1yADwS5xJgyzBAAEnqSqX+cjYOvQ=",
+  "overlay": {
+    "BUILD.bazel": "sha256-a7jmmU56fY2oLselHOx5bb16GB9YvXUfCG6M7VyxVh8="
+  }
+}
