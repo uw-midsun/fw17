@@ -1,0 +1,9 @@
+package(default_visibility = ["//visibility:public"])
+
+platform(
+    name = "stm32g4xx",
+    constraint_values = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf", # Cortex M4 With FPU.
+    ],
+)
