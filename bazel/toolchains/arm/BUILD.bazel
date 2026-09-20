@@ -18,7 +18,8 @@ DEFAULT_COPTS = [
 ]
 
 DEFAULT_LINKOPTS = [
-    "-Wl,--gc-sections"
+    "-Wl,--gc-sections",
+    "-nostartfiles",
 ]
 
 arm_none_eabi_toolchain(
@@ -34,7 +35,6 @@ arm_none_eabi_toolchain(
         "-mthumb",
         "-mfloat-abi=hard",
         "-mfpu=fpv4-sp-d16",
-        "-nostartfiles",
     ],
     target_compatible_with = [
         "@platforms//os:none",
