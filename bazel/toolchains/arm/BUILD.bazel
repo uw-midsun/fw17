@@ -1,0 +1,31 @@
+load("@arm_none_eabi//toolchain:toolchain.bzl", "arm_none_eabi_toolchain")
+
+package(default_visibility = ["//visibility:public"])
+
+DEFAULT_COPTS = [
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-std=c++20",
+]
+
+arm_none_eabi_toolchain(
+    name = "armv7emf_gcc_toolchain",
+    copts = DEFAULT_COPTS + [
+        "-mcpu=cortex-m4",
+        "-mthumb",
+        "-mfloat-abi=hard",
+        "-mfpu=fpv4-sp-d16",
+    ],
+    linkopts = [
+        "-mcpu=cortex-m4",
+        "-mthumb",
+        "-mfloat-abi=hard",
+        "-mfpu=fpv4-sp-d16",
+        "-nostartfiles",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)

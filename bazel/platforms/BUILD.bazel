@@ -4,6 +4,6 @@ platform(
     name = "stm32g4xx",
     constraint_values = [
         "@platforms//os:none",
-        "@platforms//cpu:armv7e-mf", # Cortex M4 With FPU.
+        "@platforms//cpu:armv7e-mf",  # Cortex M4 With FPU.
     ],
 )

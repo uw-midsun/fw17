@@ -1,6 +1,6 @@
 {
   "url": "https://github.com/hexdae/toolchains_arm_gnu/releases/download/v1.2.0/toolchains_arm_gnu-v1.2.0.tar.gz",
-    "integrity": "sha256-UQiVeb8NIOLvmv3RClynoh7ssnStF35QKVYHfGPu9fk=",
+  "integrity": "sha256-UQiVeb8NIOLvmv3RClynoh7ssnStF35QKVYHfGPu9fk=",
   "strip_prefix": "toolchains_arm_gnu-1.2.0",
   "archive_type": "tar.gz"
 }
