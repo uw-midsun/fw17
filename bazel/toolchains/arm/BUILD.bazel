@@ -1,0 +1,43 @@
+load("@arm_none_eabi//toolchain:toolchain.bzl", "arm_none_eabi_toolchain")
+load("@bazel_lib//lib:transitions.bzl", "platform_transition_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+DEFAULT_COPTS = [
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-std=c++20",
+    "--specs=nosys.specs",
+    "--specs=nano.specs",
+    # Required for dead code elimination.
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-fno-builtin",
+    "-fno-strict-aliasing",
+]
+
+DEFAULT_LINKOPTS = [
+    "-Wl,--gc-sections",
+    "-nostartfiles",
+]
+
+arm_none_eabi_toolchain(
+    name = "armv7emf_gcc_toolchain",
+    copts = DEFAULT_COPTS + [
+        "-mcpu=cortex-m4",
+        "-mthumb",
+        "-mfloat-abi=hard",
+        "-mfpu=fpv4-sp-d16",
+    ],
+    linkopts = DEFAULT_LINKOPTS + [
+        "-mcpu=cortex-m4",
+        "-mthumb",
+        "-mfloat-abi=hard",
+        "-mfpu=fpv4-sp-d16",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)

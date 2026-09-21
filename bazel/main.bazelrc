@@ -5,3 +5,6 @@ common --registry=https://bcr.bazel.build
 
 # Always output results of all failing tests.
 common --test_output=errors
+
+# Build using platforms.
+build --incompatible_enable_cc_toolchain_resolution
