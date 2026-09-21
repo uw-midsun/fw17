@@ -1,0 +1,17 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "stm32g4xx_hal",
+    srcs = glob(
+        ["Src/**/*.c"],
+        exclude = ["Src/**/*template*.c"],
+    ),
+    hdrs = glob(
+        ["Inc/**/*.h"],
+        exclude = ["Inc/**/*template*.h"],
+    ),
+    includes = ["Inc"],
+    strip_include_prefix = "Inc",
+)

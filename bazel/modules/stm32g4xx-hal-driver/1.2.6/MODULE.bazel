@@ -1,0 +1,6 @@
+module(
+    name = "stm32g4xx-hal-driver",
+    version = "1.2.6",
+)
+
+bazel_dep(name = "rules_cc", version = "0.2.17")
