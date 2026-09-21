@@ -13,5 +13,6 @@ cc_library(
         exclude = ["Inc/**/*template*.h"],
     ),
     includes = ["Inc"],
+    include_prefix = "stm32g4xx_hal",
     strip_include_prefix = "Inc",
 )

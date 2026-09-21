@@ -1,0 +1,1222 @@
+diff --git a/Inc/stm32g4xx_hal.h b/Inc/stm32g4xx_hal.h
+index 43446e3..3525582 100644
+--- a/Inc/stm32g4xx_hal.h
++++ b/Inc/stm32g4xx_hal.h
+@@ -26,7 +26,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_conf.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_conf.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_adc.h b/Inc/stm32g4xx_hal_adc.h
+index bcddc5f..598eb0b 100644
+--- a/Inc/stm32g4xx_hal_adc.h
++++ b/Inc/stm32g4xx_hal_adc.h
+@@ -25,10 +25,10 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /* Include low level driver */
+-#include "stm32g4xx_ll_adc.h"
++#include "stm32g4xx_hal/stm32g4xx_ll_adc.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -2195,7 +2195,7 @@ __LL_ADC_CALC_TEMPERATURE_TYP_PARAMS((__TEMPSENSOR_TYP_AVGSLOPE__),\
+   */
+ 
+ /* Include ADC HAL Extended module */
+-#include "stm32g4xx_hal_adc_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_adc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup ADC_Exported_Functions
+diff --git a/Inc/stm32g4xx_hal_adc_ex.h b/Inc/stm32g4xx_hal_adc_ex.h
+index c294ac7..f90a0ac 100644
+--- a/Inc/stm32g4xx_hal_adc_ex.h
++++ b/Inc/stm32g4xx_hal_adc_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_comp.h b/Inc/stm32g4xx_hal_comp.h
+index 3480b28..14a1a07 100644
+--- a/Inc/stm32g4xx_hal_comp.h
++++ b/Inc/stm32g4xx_hal_comp.h
+@@ -25,8 +25,8 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
+-#include "stm32g4xx_ll_exti.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_ll_exti.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_conf.h b/Inc/stm32g4xx_hal_conf.h
+index c299110..f98a63c 100644
+--- a/Inc/stm32g4xx_hal_conf.h
++++ b/Inc/stm32g4xx_hal_conf.h
+@@ -207,151 +207,151 @@ The real value may vary depending on the variations in voltage and temperature.*
+   */
+ 
+ #ifdef HAL_RCC_MODULE_ENABLED
+-#include "stm32g4xx_hal_rcc.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_rcc.h"
+ #endif /* HAL_RCC_MODULE_ENABLED */
+ 
+ #ifdef HAL_GPIO_MODULE_ENABLED
+-#include "stm32g4xx_hal_gpio.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_gpio.h"
+ #endif /* HAL_GPIO_MODULE_ENABLED */
+ 
+ #ifdef HAL_DMA_MODULE_ENABLED
+-#include "stm32g4xx_hal_dma.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_dma.h"
+ #endif /* HAL_DMA_MODULE_ENABLED */
+ 
+ #ifdef HAL_CORTEX_MODULE_ENABLED
+-#include "stm32g4xx_hal_cortex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_cortex.h"
+ #endif /* HAL_CORTEX_MODULE_ENABLED */
+ 
+ #ifdef HAL_ADC_MODULE_ENABLED
+-#include "stm32g4xx_hal_adc.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_adc.h"
+ #endif /* HAL_ADC_MODULE_ENABLED */
+ 
+ #ifdef HAL_COMP_MODULE_ENABLED
+-#include "stm32g4xx_hal_comp.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_comp.h"
+ #endif /* HAL_COMP_MODULE_ENABLED */
+ 
+ #ifdef HAL_CORDIC_MODULE_ENABLED
+-#include "stm32g4xx_hal_cordic.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_cordic.h"
+ #endif /* HAL_CORDIC_MODULE_ENABLED */
+ 
+ #ifdef HAL_CRC_MODULE_ENABLED
+-#include "stm32g4xx_hal_crc.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_crc.h"
+ #endif /* HAL_CRC_MODULE_ENABLED */
+ 
+ #ifdef HAL_CRYP_MODULE_ENABLED
+-#include "stm32g4xx_hal_cryp.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_cryp.h"
+ #endif /* HAL_CRYP_MODULE_ENABLED */
+ 
+ #ifdef HAL_DAC_MODULE_ENABLED
+-#include "stm32g4xx_hal_dac.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_dac.h"
+ #endif /* HAL_DAC_MODULE_ENABLED */
+ 
+ #ifdef HAL_EXTI_MODULE_ENABLED
+-#include "stm32g4xx_hal_exti.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_exti.h"
+ #endif /* HAL_EXTI_MODULE_ENABLED */
+ 
+ #ifdef HAL_FDCAN_MODULE_ENABLED
+-#include "stm32g4xx_hal_fdcan.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_fdcan.h"
+ #endif /* HAL_FDCAN_MODULE_ENABLED */
+ 
+ #ifdef HAL_FLASH_MODULE_ENABLED
+-#include "stm32g4xx_hal_flash.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_flash.h"
+ #endif /* HAL_FLASH_MODULE_ENABLED */
+ 
+ #ifdef HAL_FMAC_MODULE_ENABLED
+-#include "stm32g4xx_hal_fmac.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_fmac.h"
+ #endif /* HAL_FMAC_MODULE_ENABLED */
+ 
+ #ifdef HAL_HRTIM_MODULE_ENABLED
+-#include "stm32g4xx_hal_hrtim.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_hrtim.h"
+ #endif /* HAL_HRTIM_MODULE_ENABLED */
+ 
+ #ifdef HAL_IRDA_MODULE_ENABLED
+-#include "stm32g4xx_hal_irda.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_irda.h"
+ #endif /* HAL_IRDA_MODULE_ENABLED */
+ 
+ #ifdef HAL_IWDG_MODULE_ENABLED
+-#include "stm32g4xx_hal_iwdg.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_iwdg.h"
+ #endif /* HAL_IWDG_MODULE_ENABLED */
+ 
+ #ifdef HAL_I2C_MODULE_ENABLED
+-#include "stm32g4xx_hal_i2c.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_i2c.h"
+ #endif /* HAL_I2C_MODULE_ENABLED */
+ 
+ #ifdef HAL_I2S_MODULE_ENABLED
+-#include "stm32g4xx_hal_i2s.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_i2s.h"
+ #endif /* HAL_I2S_MODULE_ENABLED */
+ 
+ #ifdef HAL_LPTIM_MODULE_ENABLED
+-#include "stm32g4xx_hal_lptim.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_lptim.h"
+ #endif /* HAL_LPTIM_MODULE_ENABLED */
+ 
+ #ifdef HAL_NAND_MODULE_ENABLED
+-#include "stm32g4xx_hal_nand.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_nand.h"
+ #endif /* HAL_NAND_MODULE_ENABLED */
+ 
+ #ifdef HAL_NOR_MODULE_ENABLED
+-#include "stm32g4xx_hal_nor.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_nor.h"
+ #endif /* HAL_NOR_MODULE_ENABLED */
+ 
+ #ifdef HAL_OPAMP_MODULE_ENABLED
+-#include "stm32g4xx_hal_opamp.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_opamp.h"
+ #endif /* HAL_OPAMP_MODULE_ENABLED */
+ 
+ #ifdef HAL_PCD_MODULE_ENABLED
+-#include "stm32g4xx_hal_pcd.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_pcd.h"
+ #endif /* HAL_PCD_MODULE_ENABLED */
+ 
+ #ifdef HAL_PWR_MODULE_ENABLED
+-#include "stm32g4xx_hal_pwr.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_pwr.h"
+ #endif /* HAL_PWR_MODULE_ENABLED */
+ 
+ #ifdef HAL_QSPI_MODULE_ENABLED
+-#include "stm32g4xx_hal_qspi.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_qspi.h"
+ #endif /* HAL_QSPI_MODULE_ENABLED */
+ 
+ #ifdef HAL_RNG_MODULE_ENABLED
+-#include "stm32g4xx_hal_rng.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_rng.h"
+ #endif /* HAL_RNG_MODULE_ENABLED */
+ 
+ #ifdef HAL_RTC_MODULE_ENABLED
+-#include "stm32g4xx_hal_rtc.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_rtc.h"
+ #endif /* HAL_RTC_MODULE_ENABLED */
+ 
+ #ifdef HAL_SAI_MODULE_ENABLED
+-#include "stm32g4xx_hal_sai.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_sai.h"
+ #endif /* HAL_SAI_MODULE_ENABLED */
+ 
+ #ifdef HAL_SMARTCARD_MODULE_ENABLED
+-#include "stm32g4xx_hal_smartcard.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_smartcard.h"
+ #endif /* HAL_SMARTCARD_MODULE_ENABLED */
+ 
+ #ifdef HAL_SMBUS_MODULE_ENABLED
+-#include "stm32g4xx_hal_smbus.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_smbus.h"
+ #endif /* HAL_SMBUS_MODULE_ENABLED */
+ 
+ #ifdef HAL_SPI_MODULE_ENABLED
+-#include "stm32g4xx_hal_spi.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_spi.h"
+ #endif /* HAL_SPI_MODULE_ENABLED */
+ 
+ #ifdef HAL_SRAM_MODULE_ENABLED
+-#include "stm32g4xx_hal_sram.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_sram.h"
+ #endif /* HAL_SRAM_MODULE_ENABLED */
+ 
+ #ifdef HAL_TIM_MODULE_ENABLED
+-#include "stm32g4xx_hal_tim.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_tim.h"
+ #endif /* HAL_TIM_MODULE_ENABLED */
+ 
+ #ifdef HAL_UART_MODULE_ENABLED
+-#include "stm32g4xx_hal_uart.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_uart.h"
+ #endif /* HAL_UART_MODULE_ENABLED */
+ 
+ #ifdef HAL_USART_MODULE_ENABLED
+-#include "stm32g4xx_hal_usart.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_usart.h"
+ #endif /* HAL_USART_MODULE_ENABLED */
+ 
+ #ifdef HAL_WWDG_MODULE_ENABLED
+-#include "stm32g4xx_hal_wwdg.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_wwdg.h"
+ #endif /* HAL_WWDG_MODULE_ENABLED */
+ 
+ /* Exported macro ------------------------------------------------------------*/
+diff --git a/Inc/stm32g4xx_hal_cordic.h b/Inc/stm32g4xx_hal_cordic.h
+index ddb7a7b..71fd769 100644
+--- a/Inc/stm32g4xx_hal_cordic.h
++++ b/Inc/stm32g4xx_hal_cordic.h
+@@ -26,7 +26,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined(CORDIC)
+ /** @addtogroup STM32G4xx_HAL_Driver
+diff --git a/Inc/stm32g4xx_hal_cortex.h b/Inc/stm32g4xx_hal_cortex.h
+index c1fbd86..7834d67 100644
+--- a/Inc/stm32g4xx_hal_cortex.h
++++ b/Inc/stm32g4xx_hal_cortex.h
+@@ -24,7 +24,7 @@
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_crc.h b/Inc/stm32g4xx_hal_crc.h
+index 378c095..fff9e44 100644
+--- a/Inc/stm32g4xx_hal_crc.h
++++ b/Inc/stm32g4xx_hal_crc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -285,7 +285,7 @@ typedef struct
+   */
+ 
+ /* Include CRC HAL Extended module */
+-#include "stm32g4xx_hal_crc_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_crc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup CRC_Exported_Functions CRC Exported Functions
+diff --git a/Inc/stm32g4xx_hal_crc_ex.h b/Inc/stm32g4xx_hal_crc_ex.h
+index 421c223..646436e 100644
+--- a/Inc/stm32g4xx_hal_crc_ex.h
++++ b/Inc/stm32g4xx_hal_crc_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_cryp.h b/Inc/stm32g4xx_hal_cryp.h
+index 106f617..28fb8ba 100644
+--- a/Inc/stm32g4xx_hal_cryp.h
++++ b/Inc/stm32g4xx_hal_cryp.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -488,7 +488,7 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
+   */
+ 
+ /* Include CRYP HAL Extended module */
+-#include "stm32g4xx_hal_cryp_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_cryp_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup CRYP_Exported_Functions CRYP Exported Functions
+diff --git a/Inc/stm32g4xx_hal_cryp_ex.h b/Inc/stm32g4xx_hal_cryp_ex.h
+index 874f21f..30a41ef 100644
+--- a/Inc/stm32g4xx_hal_cryp_ex.h
++++ b/Inc/stm32g4xx_hal_cryp_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_dac.h b/Inc/stm32g4xx_hal_dac.h
+index 762b15e..7af189d 100644
+--- a/Inc/stm32g4xx_hal_dac.h
++++ b/Inc/stm32g4xx_hal_dac.h
+@@ -29,7 +29,7 @@ extern "C" {
+   */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined(DAC1) || defined(DAC2) || defined(DAC3) ||defined (DAC4)
+ 
+@@ -528,7 +528,7 @@ typedef void (*pDAC_CallbackTypeDef)(DAC_HandleTypeDef *hdac);
+   */
+ 
+ /* Include DAC HAL Extended module */
+-#include "stm32g4xx_hal_dac_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_dac_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ 
+diff --git a/Inc/stm32g4xx_hal_dac_ex.h b/Inc/stm32g4xx_hal_dac_ex.h
+index bbc7f57..28a35fe 100644
+--- a/Inc/stm32g4xx_hal_dac_ex.h
++++ b/Inc/stm32g4xx_hal_dac_ex.h
+@@ -29,7 +29,7 @@ extern "C" {
+   */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined(DAC1) || defined(DAC2) || defined(DAC3) ||defined (DAC4)
+ 
+diff --git a/Inc/stm32g4xx_hal_def.h b/Inc/stm32g4xx_hal_def.h
+index dcb73f6..5c112e6 100644
+--- a/Inc/stm32g4xx_hal_def.h
++++ b/Inc/stm32g4xx_hal_def.h
+@@ -27,7 +27,7 @@ extern "C" {
+ 
+ /* Includes ------------------------------------------------------------------*/
+ #include "stm32g4xx.h"
+-#include "Legacy/stm32_hal_legacy.h"  /* Aliases file for old names compatibility */
++#include "stm32g4xx_hal/Legacy/stm32_hal_legacy.h"  /* Aliases file for old names compatibility */
+ #include <stddef.h>
+ 
+ /* Exported types ------------------------------------------------------------*/
+diff --git a/Inc/stm32g4xx_hal_dma.h b/Inc/stm32g4xx_hal_dma.h
+index 8ba1b61..7174146 100644
+--- a/Inc/stm32g4xx_hal_dma.h
++++ b/Inc/stm32g4xx_hal_dma.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -744,7 +744,7 @@ typedef struct __DMA_HandleTypeDef
+   */
+ 
+ /* Include DMA HAL Extension module */
+-#include "stm32g4xx_hal_dma_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_dma_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ 
+diff --git a/Inc/stm32g4xx_hal_dma_ex.h b/Inc/stm32g4xx_hal_dma_ex.h
+index 9121110..d039796 100644
+--- a/Inc/stm32g4xx_hal_dma_ex.h
++++ b/Inc/stm32g4xx_hal_dma_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_exti.h b/Inc/stm32g4xx_hal_exti.h
+index b349311..81d7b59 100644
+--- a/Inc/stm32g4xx_hal_exti.h
++++ b/Inc/stm32g4xx_hal_exti.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_fdcan.h b/Inc/stm32g4xx_hal_fdcan.h
+index 4e9bb25..39f3805 100644
+--- a/Inc/stm32g4xx_hal_fdcan.h
++++ b/Inc/stm32g4xx_hal_fdcan.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined(FDCAN1)
+ 
+diff --git a/Inc/stm32g4xx_hal_flash.h b/Inc/stm32g4xx_hal_flash.h
+index 55d5bcc..b65c115 100644
+--- a/Inc/stm32g4xx_hal_flash.h
++++ b/Inc/stm32g4xx_hal_flash.h
+@@ -24,7 +24,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -794,8 +794,8 @@ typedef struct
+   */
+ 
+ /* Include FLASH HAL Extended module */
+-#include "stm32g4xx_hal_flash_ex.h"
+-#include "stm32g4xx_hal_flash_ramfunc.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_flash_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_flash_ramfunc.h"
+ 
+ /* Exported variables --------------------------------------------------------*/
+ /** @defgroup FLASH_Exported_Variables FLASH Exported Variables
+diff --git a/Inc/stm32g4xx_hal_flash_ex.h b/Inc/stm32g4xx_hal_flash_ex.h
+index f32e810..02f2d31 100644
+--- a/Inc/stm32g4xx_hal_flash_ex.h
++++ b/Inc/stm32g4xx_hal_flash_ex.h
+@@ -24,7 +24,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_flash_ramfunc.h b/Inc/stm32g4xx_hal_flash_ramfunc.h
+index 753bb33..7787fdd 100644
+--- a/Inc/stm32g4xx_hal_flash_ramfunc.h
++++ b/Inc/stm32g4xx_hal_flash_ramfunc.h
+@@ -24,7 +24,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_fmac.h b/Inc/stm32g4xx_hal_fmac.h
+index 48a94b6..e16bc1c 100644
+--- a/Inc/stm32g4xx_hal_fmac.h
++++ b/Inc/stm32g4xx_hal_fmac.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined(FMAC)
+ /** @addtogroup STM32G4xx_HAL_Driver
+diff --git a/Inc/stm32g4xx_hal_gpio.h b/Inc/stm32g4xx_hal_gpio.h
+index df7bf10..898cb26 100644
+--- a/Inc/stm32g4xx_hal_gpio.h
++++ b/Inc/stm32g4xx_hal_gpio.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -268,7 +268,7 @@ typedef enum
+   */
+ 
+ /* Include GPIO HAL Extended module */
+-#include "stm32g4xx_hal_gpio_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_gpio_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup GPIO_Exported_Functions GPIO Exported Functions
+diff --git a/Inc/stm32g4xx_hal_gpio_ex.h b/Inc/stm32g4xx_hal_gpio_ex.h
+index e1513a2..b2854c8 100644
+--- a/Inc/stm32g4xx_hal_gpio_ex.h
++++ b/Inc/stm32g4xx_hal_gpio_ex.h
+@@ -26,7 +26,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_hrtim.h b/Inc/stm32g4xx_hal_hrtim.h
+index 289192b..b742220 100644
+--- a/Inc/stm32g4xx_hal_hrtim.h
++++ b/Inc/stm32g4xx_hal_hrtim.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined(HRTIM1)
+ /** @addtogroup STM32G4xx_HAL_Driver
+diff --git a/Inc/stm32g4xx_hal_i2c.h b/Inc/stm32g4xx_hal_i2c.h
+index 0a0781d..994d16b 100644
+--- a/Inc/stm32g4xx_hal_i2c.h
++++ b/Inc/stm32g4xx_hal_i2c.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -587,7 +587,7 @@ typedef  void (*pI2C_AddrCallbackTypeDef)(I2C_HandleTypeDef *hi2c, uint8_t Trans
+   */
+ 
+ /* Include I2C HAL Extended module */
+-#include "stm32g4xx_hal_i2c_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_i2c_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup I2C_Exported_Functions
+diff --git a/Inc/stm32g4xx_hal_i2c_ex.h b/Inc/stm32g4xx_hal_i2c_ex.h
+index 3042f9e..7150b62 100644
+--- a/Inc/stm32g4xx_hal_i2c_ex.h
++++ b/Inc/stm32g4xx_hal_i2c_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_i2s.h b/Inc/stm32g4xx_hal_i2s.h
+index 26cc3ca..e9b5fda 100644
+--- a/Inc/stm32g4xx_hal_i2s.h
++++ b/Inc/stm32g4xx_hal_i2s.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined(SPI_I2S_SUPPORT)
+ /** @addtogroup STM32G4xx_HAL_Driver
+diff --git a/Inc/stm32g4xx_hal_irda.h b/Inc/stm32g4xx_hal_irda.h
+index 1f6e721..b29c75d 100644
+--- a/Inc/stm32g4xx_hal_irda.h
++++ b/Inc/stm32g4xx_hal_irda.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -794,7 +794,7 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
+   */
+ 
+ /* Include IRDA HAL Extended module */
+-#include "stm32g4xx_hal_irda_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_irda_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup IRDA_Exported_Functions IRDA Exported Functions
+diff --git a/Inc/stm32g4xx_hal_irda_ex.h b/Inc/stm32g4xx_hal_irda_ex.h
+index c1f87f4..a98389c 100644
+--- a/Inc/stm32g4xx_hal_irda_ex.h
++++ b/Inc/stm32g4xx_hal_irda_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_iwdg.h b/Inc/stm32g4xx_hal_iwdg.h
+index 0ef49e4..001d611 100644
+--- a/Inc/stm32g4xx_hal_iwdg.h
++++ b/Inc/stm32g4xx_hal_iwdg.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_lptim.h b/Inc/stm32g4xx_hal_lptim.h
+index 4226501..3db0593 100644
+--- a/Inc/stm32g4xx_hal_lptim.h
++++ b/Inc/stm32g4xx_hal_lptim.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_nand.h b/Inc/stm32g4xx_hal_nand.h
+index de07840..6e36197 100644
+--- a/Inc/stm32g4xx_hal_nand.h
++++ b/Inc/stm32g4xx_hal_nand.h
+@@ -27,7 +27,7 @@ extern "C" {
+ #if defined(FMC_BANK3)
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_ll_fmc.h"
++#include "stm32g4xx_hal/stm32g4xx_ll_fmc.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_nor.h b/Inc/stm32g4xx_hal_nor.h
+index 885a52e..e8ab981 100644
+--- a/Inc/stm32g4xx_hal_nor.h
++++ b/Inc/stm32g4xx_hal_nor.h
+@@ -27,7 +27,7 @@ extern "C" {
+ #if defined(FMC_BANK1)
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_ll_fmc.h"
++#include "stm32g4xx_hal/stm32g4xx_ll_fmc.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_opamp.h b/Inc/stm32g4xx_hal_opamp.h
+index e00b828..4e52e97 100644
+--- a/Inc/stm32g4xx_hal_opamp.h
++++ b/Inc/stm32g4xx_hal_opamp.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -489,7 +489,7 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
+   */
+ 
+ /* Include OPAMP HAL Extended module */
+-#include "stm32g4xx_hal_opamp_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_opamp_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup OPAMP_Exported_Functions OPAMP Exported Functions
+diff --git a/Inc/stm32g4xx_hal_opamp_ex.h b/Inc/stm32g4xx_hal_opamp_ex.h
+index 7e9fea6..93bb5c0 100644
+--- a/Inc/stm32g4xx_hal_opamp_ex.h
++++ b/Inc/stm32g4xx_hal_opamp_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_pcd.h b/Inc/stm32g4xx_hal_pcd.h
+index 0ccde75..736343e 100644
+--- a/Inc/stm32g4xx_hal_pcd.h
++++ b/Inc/stm32g4xx_hal_pcd.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_ll_usb.h"
++#include "stm32g4xx_hal/stm32g4xx_ll_usb.h"
+ 
+ #if defined (USB)
+ 
+@@ -144,7 +144,7 @@ typedef struct
+   */
+ 
+ /* Include PCD HAL Extended module */
+-#include "stm32g4xx_hal_pcd_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_pcd_ex.h"
+ 
+ /* Exported constants --------------------------------------------------------*/
+ /** @defgroup PCD_Exported_Constants PCD Exported Constants
+diff --git a/Inc/stm32g4xx_hal_pcd_ex.h b/Inc/stm32g4xx_hal_pcd_ex.h
+index 3d85758..a332606 100644
+--- a/Inc/stm32g4xx_hal_pcd_ex.h
++++ b/Inc/stm32g4xx_hal_pcd_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif /* __cplusplus */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined (USB)
+ /** @addtogroup STM32G4xx_HAL_Driver
+diff --git a/Inc/stm32g4xx_hal_pwr.h b/Inc/stm32g4xx_hal_pwr.h
+index 9ed652c..91cc1e8 100644
+--- a/Inc/stm32g4xx_hal_pwr.h
++++ b/Inc/stm32g4xx_hal_pwr.h
+@@ -25,7 +25,7 @@
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -338,7 +338,7 @@ typedef struct
+   */
+ 
+ /* Include PWR HAL Extended module */
+-#include "stm32g4xx_hal_pwr_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_pwr_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ 
+diff --git a/Inc/stm32g4xx_hal_pwr_ex.h b/Inc/stm32g4xx_hal_pwr_ex.h
+index 203f36b..484ea3a 100644
+--- a/Inc/stm32g4xx_hal_pwr_ex.h
++++ b/Inc/stm32g4xx_hal_pwr_ex.h
+@@ -25,7 +25,7 @@
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_qspi.h b/Inc/stm32g4xx_hal_qspi.h
+index 2216197..aa46a04 100644
+--- a/Inc/stm32g4xx_hal_qspi.h
++++ b/Inc/stm32g4xx_hal_qspi.h
+@@ -25,7 +25,7 @@
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined(QUADSPI)
+ 
+diff --git a/Inc/stm32g4xx_hal_rcc.h b/Inc/stm32g4xx_hal_rcc.h
+index 2b68a4d..54a4416 100644
+--- a/Inc/stm32g4xx_hal_rcc.h
++++ b/Inc/stm32g4xx_hal_rcc.h
+@@ -24,7 +24,7 @@
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -3341,7 +3341,7 @@ typedef struct
+   */
+ 
+ /* Include RCC HAL Extended module */
+-#include "stm32g4xx_hal_rcc_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_rcc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup RCC_Exported_Functions
+diff --git a/Inc/stm32g4xx_hal_rcc_ex.h b/Inc/stm32g4xx_hal_rcc_ex.h
+index d50f4e5..5318784 100644
+--- a/Inc/stm32g4xx_hal_rcc_ex.h
++++ b/Inc/stm32g4xx_hal_rcc_ex.h
+@@ -24,7 +24,7 @@
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_rng.h b/Inc/stm32g4xx_hal_rng.h
+index 8d0da09..959424e 100644
+--- a/Inc/stm32g4xx_hal_rng.h
++++ b/Inc/stm32g4xx_hal_rng.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_rtc.h b/Inc/stm32g4xx_hal_rtc.h
+index 202b4e3..5b92c0f 100644
+--- a/Inc/stm32g4xx_hal_rtc.h
++++ b/Inc/stm32g4xx_hal_rtc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -790,7 +790,7 @@ typedef  void (*pRTC_CallbackTypeDef)(RTC_HandleTypeDef *hrtc); /*!< pointer to
+   */
+ 
+ /* Include RTC HAL Extended module */
+-#include "stm32g4xx_hal_rtc_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_rtc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup RTC_Exported_Functions RTC Exported Functions
+diff --git a/Inc/stm32g4xx_hal_rtc_ex.h b/Inc/stm32g4xx_hal_rtc_ex.h
+index b24a093..75e6e39 100644
+--- a/Inc/stm32g4xx_hal_rtc_ex.h
++++ b/Inc/stm32g4xx_hal_rtc_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_sai.h b/Inc/stm32g4xx_hal_sai.h
+index d8311b2..150b26c 100644
+--- a/Inc/stm32g4xx_hal_sai.h
++++ b/Inc/stm32g4xx_hal_sai.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -733,7 +733,7 @@ typedef void (*pSAI_CallbackTypeDef)(SAI_HandleTypeDef *hsai);
+   */
+ 
+ /* Include SAI HAL Extension module */
+-#include "stm32g4xx_hal_sai_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_sai_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup SAI_Exported_Functions
+diff --git a/Inc/stm32g4xx_hal_sai_ex.h b/Inc/stm32g4xx_hal_sai_ex.h
+index 86a9625..37d2ee7 100644
+--- a/Inc/stm32g4xx_hal_sai_ex.h
++++ b/Inc/stm32g4xx_hal_sai_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_smartcard.h b/Inc/stm32g4xx_hal_smartcard.h
+index 8ebbf27..33b5caf 100644
+--- a/Inc/stm32g4xx_hal_smartcard.h
++++ b/Inc/stm32g4xx_hal_smartcard.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -1169,7 +1169,7 @@ typedef enum
+   */
+ 
+ /* Include SMARTCARD HAL Extended module */
+-#include "stm32g4xx_hal_smartcard_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_smartcard_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup SMARTCARD_Exported_Functions
+diff --git a/Inc/stm32g4xx_hal_smartcard_ex.h b/Inc/stm32g4xx_hal_smartcard_ex.h
+index 7f1b393..1108961 100644
+--- a/Inc/stm32g4xx_hal_smartcard_ex.h
++++ b/Inc/stm32g4xx_hal_smartcard_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_smbus.h b/Inc/stm32g4xx_hal_smbus.h
+index c36b5b7..78ee28e 100644
+--- a/Inc/stm32g4xx_hal_smbus.h
++++ b/Inc/stm32g4xx_hal_smbus.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -654,7 +654,7 @@ typedef  void (*pSMBUS_AddrCallbackTypeDef)(SMBUS_HandleTypeDef *hsmbus, uint8_t
+   */
+ 
+ /* Include SMBUS HAL Extended module */
+-#include "stm32g4xx_hal_smbus_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_smbus_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup SMBUS_Exported_Functions SMBUS Exported Functions
+diff --git a/Inc/stm32g4xx_hal_smbus_ex.h b/Inc/stm32g4xx_hal_smbus_ex.h
+index 7ddf770..d105501 100644
+--- a/Inc/stm32g4xx_hal_smbus_ex.h
++++ b/Inc/stm32g4xx_hal_smbus_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_spi.h b/Inc/stm32g4xx_hal_spi.h
+index ac61371..bb31197 100644
+--- a/Inc/stm32g4xx_hal_spi.h
++++ b/Inc/stm32g4xx_hal_spi.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -763,7 +763,7 @@ typedef  void (*pSPI_CallbackTypeDef)(SPI_HandleTypeDef *hspi); /*!< pointer to
+   */
+ 
+ /* Include SPI HAL Extended module */
+-#include "stm32g4xx_hal_spi_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_spi_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup SPI_Exported_Functions
+diff --git a/Inc/stm32g4xx_hal_spi_ex.h b/Inc/stm32g4xx_hal_spi_ex.h
+index 991dac5..2e10427 100644
+--- a/Inc/stm32g4xx_hal_spi_ex.h
++++ b/Inc/stm32g4xx_hal_spi_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_sram.h b/Inc/stm32g4xx_hal_sram.h
+index e91667a..9e3d0f7 100644
+--- a/Inc/stm32g4xx_hal_sram.h
++++ b/Inc/stm32g4xx_hal_sram.h
+@@ -27,7 +27,7 @@ extern "C" {
+ #if defined(FMC_BANK1)
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_ll_fmc.h"
++#include "stm32g4xx_hal/stm32g4xx_ll_fmc.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_tim.h b/Inc/stm32g4xx_hal_tim.h
+index 75168c1..9c883b1 100644
+--- a/Inc/stm32g4xx_hal_tim.h
++++ b/Inc/stm32g4xx_hal_tim.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -2326,7 +2326,7 @@ mode.
+ /* End of private macros -----------------------------------------------------*/
+ 
+ /* Include TIM HAL Extended module */
+-#include "stm32g4xx_hal_tim_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_tim_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup TIM_Exported_Functions TIM Exported Functions
+diff --git a/Inc/stm32g4xx_hal_tim_ex.h b/Inc/stm32g4xx_hal_tim_ex.h
+index 339387f..c4fa754 100644
+--- a/Inc/stm32g4xx_hal_tim_ex.h
++++ b/Inc/stm32g4xx_hal_tim_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_uart.h b/Inc/stm32g4xx_hal_uart.h
+index 001ddbb..725123b 100644
+--- a/Inc/stm32g4xx_hal_uart.h
++++ b/Inc/stm32g4xx_hal_uart.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -1589,7 +1589,7 @@ typedef  void (*pUART_RxEventCallbackTypeDef)
+   */
+ 
+ /* Include UART HAL Extended module */
+-#include "stm32g4xx_hal_uart_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_uart_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup UART_Exported_Functions UART Exported Functions
+diff --git a/Inc/stm32g4xx_hal_uart_ex.h b/Inc/stm32g4xx_hal_uart_ex.h
+index 0c56e27..3ef559e 100644
+--- a/Inc/stm32g4xx_hal_uart_ex.h
++++ b/Inc/stm32g4xx_hal_uart_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_usart.h b/Inc/stm32g4xx_hal_usart.h
+index b560342..81f4db5 100644
+--- a/Inc/stm32g4xx_hal_usart.h
++++ b/Inc/stm32g4xx_hal_usart.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+@@ -938,7 +938,7 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
+   */
+ 
+ /* Include USART HAL Extended module */
+-#include "stm32g4xx_hal_usart_ex.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_usart_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup USART_Exported_Functions USART Exported Functions
+diff --git a/Inc/stm32g4xx_hal_usart_ex.h b/Inc/stm32g4xx_hal_usart_ex.h
+index a60f797..ef5c29d 100644
+--- a/Inc/stm32g4xx_hal_usart_ex.h
++++ b/Inc/stm32g4xx_hal_usart_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_hal_wwdg.h b/Inc/stm32g4xx_hal_wwdg.h
+index a70ed94..463ef71 100644
+--- a/Inc/stm32g4xx_hal_wwdg.h
++++ b/Inc/stm32g4xx_hal_wwdg.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_ll_dma.h b/Inc/stm32g4xx_ll_dma.h
+index 515b32e..aa1f4d8 100644
+--- a/Inc/stm32g4xx_ll_dma.h
++++ b/Inc/stm32g4xx_ll_dma.h
+@@ -26,7 +26,7 @@ extern "C" {
+ 
+ /* Includes ------------------------------------------------------------------*/
+ #include "stm32g4xx.h"
+-#include "stm32g4xx_ll_dmamux.h"
++#include "stm32g4xx_hal/stm32g4xx_ll_dmamux.h"
+ 
+ /** @addtogroup STM32G4xx_LL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_ll_fmc.h b/Inc/stm32g4xx_ll_fmc.h
+index 6df0884..713b244 100644
+--- a/Inc/stm32g4xx_ll_fmc.h
++++ b/Inc/stm32g4xx_ll_fmc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ /** @addtogroup STM32G4xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32g4xx_ll_usb.h b/Inc/stm32g4xx_ll_usb.h
+index 8d3a884..00b156a 100644
+--- a/Inc/stm32g4xx_ll_usb.h
++++ b/Inc/stm32g4xx_ll_usb.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif /* __cplusplus */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32g4xx_hal_def.h"
++#include "stm32g4xx_hal/stm32g4xx_hal_def.h"
+ 
+ #if defined (USB)
+ /** @addtogroup STM32G4xx_HAL_Driver
