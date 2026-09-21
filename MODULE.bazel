@@ -10,6 +10,8 @@ bazel_dep(name = "platforms", version = "1.1.0")
 bazel_dep(name = "googletest", version = "1.17.0")
 bazel_dep(name = "highway", version = "1.4.0")
 bazel_dep(name = "google_benchmark", version = "1.9.5")
+bazel_dep(name = "cmsis-device-g4", version = "1.2.6")
+bazel_dep(name = "stm32g4xx-hal-driver", version = "1.2.6")
 
 include("//bazel/toolchains:llvm_toolchain.MODULE.bazel")
 include("//bazel/toolchains:arm_toolchain.MODULE.bazel")

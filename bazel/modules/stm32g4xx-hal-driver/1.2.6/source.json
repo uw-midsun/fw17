@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/STMicroelectronics/stm32g4xx-hal-driver/archive/refs/tags/v1.2.6.tar.gz",
+  "archive_type": "tar.gz",
+  "strip_prefix": "stm32g4xx-hal-driver-1.2.6",
+  "integrity": "sha256-x5yWD25g2TDbvmLjJNc7ZsjF6VMO2EkCO8EbKb8I/eE=",
+  "overlay": {
+    "BUILD.bazel": "sha256-rXo/UGZ/bsHGvOVFc/Uhk4EW2zOMjxn959i9Bx+zRhQ="
+  },
+  "patch_strip": 1,
+  "patches": {
+    "0001-hal-conf.patch": "sha256-Q2biUo8PIcJi5I7JJJliTn3/W48iqPRW6CpWLppKa5k=",
+    "0002-fix-includes.patch": "sha256-z75eWb4gRiVZ2Umiizn0DsbULQ5zNlGBey7pdzk5tUo="
+  }
+}
