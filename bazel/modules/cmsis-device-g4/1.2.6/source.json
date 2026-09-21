@@ -1,0 +1,9 @@
+{
+  "url": "https://github.com/STMicroelectronics/cmsis-device-g4/archive/refs/tags/v1.2.6.tar.gz",
+  "archive_type": "tar.gz",
+  "strip_prefix": "cmsis-device-g4-1.2.6",
+  "integrity": "sha256-oVDUszRhDY2ERThekQTQiqeujE5EOyp9xvGclxHYu0w=",
+  "overlay": {
+    "BUILD.bazel": "sha256-9EMwNt2vegjaxrcwlko2WqSF2iRu68oV03CUJaPXGRI="
+  }
+}
