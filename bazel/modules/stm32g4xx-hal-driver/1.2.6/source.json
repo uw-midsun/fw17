@@ -5,5 +5,9 @@
   "integrity": "sha256-x5yWD25g2TDbvmLjJNc7ZsjF6VMO2EkCO8EbKb8I/eE=",
   "overlay": {
     "BUILD.bazel": "sha256-dEqW68Pf4Wu5fvwrFk4myA1AkvGcLoFpzGD6wRV4CkM="
+  },
+  "patch_strip": 1,
+  "patches": {
+    "0001-hal-conf.patch": "sha256-Q2biUo8PIcJi5I7JJJliTn3/W48iqPRW6CpWLppKa5k="
   }
 }
