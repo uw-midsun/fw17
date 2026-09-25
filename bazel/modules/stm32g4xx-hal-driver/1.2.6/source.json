@@ -4,7 +4,7 @@
   "strip_prefix": "stm32g4xx-hal-driver-1.2.6",
   "integrity": "sha256-x5yWD25g2TDbvmLjJNc7ZsjF6VMO2EkCO8EbKb8I/eE=",
   "overlay": {
-    "BUILD.bazel": "sha256-rXo/UGZ/bsHGvOVFc/Uhk4EW2zOMjxn959i9Bx+zRhQ="
+    "BUILD.bazel": "sha256-w+Qzr7vYXNwkaHUwhCPUl/yE4u+pDYA0Yod0Rzo2lKw="
   },
   "patch_strip": 1,
   "patches": {
