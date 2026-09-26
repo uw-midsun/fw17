@@ -1,0 +1,11 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_binary(
+    name = "blinky",
+    srcs = [
+        "main.cpp",
+    ],
+    deps = ["@stm32g4xx-hal-driver//:stm32g4xx_hal"],
+)
