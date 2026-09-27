@@ -27,6 +27,8 @@ DEFAULT_CONLYOPTS = [
 DEFAULT_LINKOPTS = [
     "-Wl,--gc-sections",
     "-nostartfiles",
+    "--specs=nosys.specs",
+    "--specs=nano.specs",
 ]
 
 arm_none_eabi_toolchain(
