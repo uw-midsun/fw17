@@ -4,20 +4,29 @@ load("//bazel:transitions.bzl", "midsun_transition_binary")
 
 package(default_visibility = ["//visibility:public"])
 
+exports_files(["linker.ld"])
+
 cc_binary(
     name = "blinky_cc",
     srcs = [
         "main.cpp",
     ],
     tags = ["manual"],
-    deps = ["@stm32g4xx-hal-driver//:stm32g4xx_hal"],
+    additional_linker_inputs = ["//blinky:linker.ld"],
+    linkopts = [
+        "-Wl,-T $(location {})".format("//blinky:linker.ld"),
+    ],
+    deps = [
+        "@cmsis-device-g4//:startup_stm32g474xx",
+        "@stm32g4xx-hal-driver//:stm32g4xx_hal",
+    ],
 )
 
 midsun_transition_binary(
     name = "blinky",
     binary = "//blinky:blinky_cc",
-    target_platform = "//bazel/platforms:stm32g4xx",
     extra_defines = [
         "STM32G474xx",
     ],
+    target_platform = "//bazel/platforms:stm32g4xx",
 )
