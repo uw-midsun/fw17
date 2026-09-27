@@ -6,7 +6,6 @@ Heavily inspired / derived from: https://github.com/bazel-contrib/bazel-lib/blob
 
 load("@bazel_skylib//lib:paths.bzl", "paths")
 
-
 def _transition_impl(settings, attr):
     defines = []
     for define in attr.extra_defines:
