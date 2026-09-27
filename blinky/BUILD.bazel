@@ -1,11 +1,22 @@
-load("@rules_cc//cc:defs.bzl", "cc_library", "cc_binary")
+load("@bazel_lib//lib:transitions.bzl", "platform_transition_binary")
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
 
 package(default_visibility = ["//visibility:public"])
 
 cc_binary(
-    name = "blinky",
+    name = "blinky_cc",
     srcs = [
         "main.cpp",
     ],
+    defines = [
+        "STM32G474xx",
+    ],
+    tags = ["manual"],
     deps = ["@stm32g4xx-hal-driver//:stm32g4xx_hal"],
+)
+
+platform_transition_binary(
+    name = "blinky",
+    binary = "//blinky:blinky_cc",
+    target_platform = "//bazel/platforms:stm32g4xx",
 )
