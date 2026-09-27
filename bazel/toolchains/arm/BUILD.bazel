@@ -7,7 +7,6 @@ DEFAULT_COPTS = [
     "-Wall",
     "-Wextra",
     "-Werror",
-    "-std=c++20",
     "--specs=nosys.specs",
     "--specs=nano.specs",
     # Required for dead code elimination.
@@ -17,6 +16,14 @@ DEFAULT_COPTS = [
     "-fno-strict-aliasing",
 ]
 
+DEFAULT_CXXOPTS = [
+    "-std=c++20",
+]
+
+DEFAULT_CONLYOPTS = [
+    "-std=c11",
+]
+
 DEFAULT_LINKOPTS = [
     "-Wl,--gc-sections",
     "-nostartfiles",
@@ -24,12 +31,14 @@ DEFAULT_LINKOPTS = [
 
 arm_none_eabi_toolchain(
     name = "armv7emf_gcc_toolchain",
+    conlyopts = DEFAULT_CONLYOPTS,
     copts = DEFAULT_COPTS + [
         "-mcpu=cortex-m4",
         "-mthumb",
         "-mfloat-abi=hard",
         "-mfpu=fpv4-sp-d16",
     ],
+    cxxopts = DEFAULT_CXXOPTS,
     linkopts = DEFAULT_LINKOPTS + [
         "-mcpu=cortex-m4",
         "-mthumb",

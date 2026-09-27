@@ -2905,7 +2905,7 @@
     },
     "@@toolchains_arm_gnu+//:extensions.bzl%arm_toolchain": {
       "general": {
-        "bzlTransitiveDigest": "T3KoyiOm6nm/8fqHjXhMD9HLuYUWJ/68ABtWmrnhH+w=",
+        "bzlTransitiveDigest": "xh+H5mmxsdGSz7dnvN/L6aj5IJH0XoEIjiOCQ10eY7E=",
         "usagesDigest": "WxeiW6xCwaQ5xkLtMuuGlAUIBakxGFg2TaKzVUbdGSQ=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
