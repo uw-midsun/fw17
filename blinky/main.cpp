@@ -1,12 +1,16 @@
 #include <array>
 #include "stm32g4xx_hal/stm32g4xx_hal.h"
 
+extern "C" void SysTick_Handler(void) {
+  HAL_IncTick();
+}
+
 int main() {
   HAL_Init();
-  HAL_InitTick(32U);
+  __HAL_RCC_GPIOC_CLK_ENABLE();
 
-  auto* gpio_port = GPIOA;
-  constexpr auto kPin = GPIO_PIN_0;
+  auto* gpio_port = GPIOC;
+  constexpr auto kPin = GPIO_PIN_13;
 
   GPIO_InitTypeDef init = {
     .Pin = kPin,
