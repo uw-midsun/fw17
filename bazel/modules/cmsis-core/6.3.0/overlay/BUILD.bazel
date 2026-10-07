@@ -1,0 +1,11 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "cmsis-core",
+    hdrs = glob([
+        "CMSIS/Core/Include/**/*.h",
+    ]),
+    strip_include_prefix = "CMSIS/Core/Include",
+)

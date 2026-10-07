@@ -4,6 +4,6 @@
   "strip_prefix": "cmsis-device-g4-1.2.6",
   "integrity": "sha256-oVDUszRhDY2ERThekQTQiqeujE5EOyp9xvGclxHYu0w=",
   "overlay": {
-    "BUILD.bazel": "sha256-Kc1s5NOyu9SEhrivoDTSQCgwF0ckTTxghvWow2hR8Fo="
+    "BUILD.bazel": "sha256-/fXMncWXNT0UuFNL/tNcjiNca5dFRp9uvYIVPFE8FIc="
   }
 }

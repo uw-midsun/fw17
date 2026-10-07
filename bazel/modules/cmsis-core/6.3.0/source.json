@@ -1,0 +1,9 @@
+{
+  "url": "https://github.com/STMicroelectronics/cmsis-core/archive/refs/tags/6.3.0.tar.gz",
+  "archive_type": "tar.gz",
+  "strip_prefix": "cmsis-core-6.3.0",
+  "integrity": "sha256-ziUVB0QuZ2P07A0ZFJUOYFjEI2aM/3e6R7xWElLNhMc=",
+  "overlay": {
+    "BUILD.bazel": "sha256-eJAaYSuOc9U5pIKvDUISbduVZHuCumsvClo+jojLWD0="
+  }
+}
