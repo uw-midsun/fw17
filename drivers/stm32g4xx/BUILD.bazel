@@ -4,7 +4,7 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "system",
-    srcs = ["system.c", "syscalls.c"],
+    srcs = ["hal_system.c", "syscalls.c"],
     target_compatible_with = [
         "@platforms//os:none",
         "@platforms//cpu:armv7e-mf",
