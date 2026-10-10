@@ -21,7 +21,7 @@ int main() {
 
   HAL_GPIO_Init(gpio_port, &init);
 
-  while (true) {
+  while(true) {
     HAL_GPIO_TogglePin(gpio_port, kPin);
     HAL_Delay(200U);
   }
