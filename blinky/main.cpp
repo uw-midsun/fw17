@@ -3,8 +3,6 @@
 #include "drivers/stm32g4xx/system.h"
 #include "stm32g4xx_hal/stm32g4xx_hal.h"
 
-extern "C" void SysTick_Handler(void) { HAL_IncTick(); }
-
 int main() {
   midsun::drivers::system::Init();
 

@@ -6,7 +6,6 @@ cc_library(
     name = "system",
     srcs = [
         "hal_system.c",
-        "syscalls.c",
         "system.cpp",
     ],
     hdrs = ["system.h"],
