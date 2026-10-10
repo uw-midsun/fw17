@@ -29,6 +29,7 @@ DEFAULT_LINKOPTS = [
     "-nostartfiles",
     "--specs=nosys.specs",
     "--specs=nano.specs",
+    "-lstdc++",
 ]
 
 arm_none_eabi_toolchain(
