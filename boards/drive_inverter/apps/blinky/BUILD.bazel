@@ -17,8 +17,8 @@ cc_binary(
     ],
     tags = ["manual"],
     deps = [
-        "//drivers/stm32g4xx:system",
         "//drivers/stm32g4xx:gpio",
+        "//drivers/stm32g4xx:system",
         "@cmsis-device-g4//:startup_stm32g474xx",
         "@stm32g4xx-hal-driver//:stm32g4xx_hal",
     ],
