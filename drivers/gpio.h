@@ -14,8 +14,7 @@ enum class Direction : std::uint8_t {
 };
 
 class OutputPin {
-  virtual void Init() noexcept = 0;
-
+ public:
   virtual Direction GetOutput() const noexcept = 0;
 
   virtual void SetOutput(const Direction& direction) noexcept = 0;

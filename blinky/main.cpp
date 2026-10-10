@@ -1,28 +1,21 @@
 #include <array>
 
+#include "drivers/stm32g4xx/gpio.h"
 #include "drivers/stm32g4xx/system.h"
 #include "stm32g4xx_hal/stm32g4xx_hal.h"
 
 int main() {
   midsun::drivers::stm32g4xx::system::Init();
 
-  __HAL_RCC_GPIOC_CLK_ENABLE();
+  using BlinkyPin = midsun::drivers::stm32g4xx::gpio::OutputPin<
+      midsun::drivers::stm32g4xx::gpio::Port::C, midsun::drivers::stm32g4xx::gpio::Pin::Pin13,
+      midsun::drivers::stm32g4xx::gpio::Mode::PushPullOutput, midsun::drivers::stm32g4xx::gpio::Pull::Up,
+      midsun::drivers::stm32g4xx::gpio::Speed::VeryHigh>;
 
-  auto* gpio_port = GPIOC;
-  constexpr auto kPin = GPIO_PIN_13;
-
-  GPIO_InitTypeDef init = {
-      .Pin = kPin,
-      .Mode = GPIO_MODE_OUTPUT_PP,
-      .Pull = GPIO_PULLUP,
-      .Speed = GPIO_SPEED_FREQ_HIGH,
-      .Alternate = 0U,
-  };
-
-  HAL_GPIO_Init(gpio_port, &init);
+  auto blinky_pin = BlinkyPin::Init();
 
   while(true) {
-    HAL_GPIO_TogglePin(gpio_port, kPin);
+    blinky_pin.Toggle();
     HAL_Delay(200U);
   }
 }

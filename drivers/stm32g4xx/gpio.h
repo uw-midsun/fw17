@@ -72,51 +72,76 @@ constexpr bool IsValidSpeed(const Speed speed) { return IS_GPIO_SPEED(static_cas
 
 enum class Port : std::uint8_t { A = 0U, B, C, D, E, F, G };
 
-using GpioInstance = GPIO_TypeDef*;
-
-constexpr std::optional<GpioInstance> GetInstance(const Port& port) {
+constexpr bool IsValidPort(const Port port) {
   switch(port) {
     case Port::A:
+    case Port::B:
+    case Port::C:
+    case Port::D:
+    case Port::E:
+    case Port::F:
+    case Port::G:
+      return true;
+  }
+  return false;
+}
+
+using GpioInstance = GPIO_TypeDef*;
+
+inline GpioInstance GetEnabledInstance(const Port& port) {
+  switch(port) {
+    case Port::A:
+      __HAL_RCC_GPIOA_CLK_ENABLE();
       return GPIOA;
     case Port::B:
+      __HAL_RCC_GPIOB_CLK_ENABLE();
       return GPIOB;
     case Port::C:
+      __HAL_RCC_GPIOC_CLK_ENABLE();
       return GPIOC;
     case Port::D:
+      __HAL_RCC_GPIOD_CLK_ENABLE();
       return GPIOD;
     case Port::E:
+      __HAL_RCC_GPIOE_CLK_ENABLE();
       return GPIOE;
     case Port::F:
+      __HAL_RCC_GPIOF_CLK_ENABLE();
       return GPIOF;
     case Port::G:
+      __HAL_RCC_GPIOG_CLK_ENABLE();
       return GPIOG;
-    default:
-      return std::nullopt;
   }
+
+  return nullptr;
 }
 
 template <Port kPort, Pin kPin, Mode kMode, Pull kPull, Speed kSpeed>
 class OutputPin final : public midsun::drivers::gpio::OutputPin {
-  static constexpr auto kMaybeInstance = GetInstance(kPort);
   static constexpr auto kPinCasted = static_cast<std::uint16_t>(kPin);
 
+  static_assert(IsValidPort(kPort));
   static_assert(IsValidPin(kPin));
   static_assert(IsValidMode(kMode));
   static_assert(IsValidPull(kPull));
   static_assert(IsValidSpeed(kSpeed));
-  static_assert(kMaybeInstance.has_value());
 
-  void Init() noexcept override {
-    auto instance = OutputPin{kMaybeInstance.value()};
+ public:
+  static OutputPin Init() noexcept {
+    auto instance = GetEnabledInstance(kPort);
+    auto pin = OutputPin{instance};
 
     const auto init = GPIO_InitTypeDef{
-        .Pin = kPin,
-        .Mode = kMode,
-        .Speed = kSpeed,
+        .Pin = static_cast<uint32_t>(kPin),
+        .Mode = static_cast<uint32_t>(kMode),
+        .Pull = static_cast<uint32_t>(kPull),
+        .Speed = static_cast<uint32_t>(kSpeed),
         .Alternate = 0U,
     };
 
-    HAL_GPIO_Init(instance_, &init);
+    HAL_GPIO_Init(pin.instance_, &init);
+
+    return pin;
   }
 
   midsun::drivers::gpio::Direction GetOutput() const noexcept override {
