@@ -131,7 +131,7 @@ class OutputPin final : public midsun::drivers::gpio::OutputPin {
     auto instance = GetEnabledInstance(kPort);
     auto pin = OutputPin{instance};
 
-    const auto init = GPIO_InitTypeDef{
+    constexpr auto kInit = GPIO_InitTypeDef{
         .Pin = static_cast<uint32_t>(kPin),
         .Mode = static_cast<uint32_t>(kMode),
         .Pull = static_cast<uint32_t>(kPull),
@@ -139,7 +139,7 @@ class OutputPin final : public midsun::drivers::gpio::OutputPin {
         .Alternate = 0U,
     };
 
-    HAL_GPIO_Init(pin.instance_, &init);
+    HAL_GPIO_Init(pin.instance_, &kInit);
 
     return pin;
   }
