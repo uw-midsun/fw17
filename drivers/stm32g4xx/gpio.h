@@ -31,20 +31,6 @@ constexpr bool IsValidPin(Pin pin) { return IS_GPIO_PIN(pin); }
 
 enum class Port : std::uint8_t { A = 0U, B, C, D, E, F, G };
 
-constexpr bool IsValidPort(Port port) {
-  switch(port) {
-    case Port::A:
-    case Port::B:
-    case Port::C:
-    case Port::D:
-    case Port::E:
-    case Port::F:
-    case Port::G:
-      return true;
-  }
-  return false;
-}
-
 namespace private_ {
 
 using GpioPort = GPIO_TypeDef*;
