@@ -1,9 +1,6 @@
 #pragma once
 
-#include <assert.h>
-
 #include <cstdint>
-#include <optional>
 
 #include "drivers/gpio.h"
 #include "stm32g4xx_hal/stm32g4xx_hal.h"
