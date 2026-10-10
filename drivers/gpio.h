@@ -7,12 +7,12 @@
 namespace midsun::drivers::gpio {
 
 enum class Error : std::uint8_t {
-  InitFailed,
+  InitFailed = 0U,
 };
 
 enum class Direction : std::uint8_t {
   Low = 0U,
-  High = 1U,
+  High,
 };
 
 class OutputPin {

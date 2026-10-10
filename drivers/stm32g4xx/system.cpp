@@ -11,7 +11,7 @@ void _init(void) {}
 void _fini(void) {}
 }
 
-namespace midsun::drivers::system {
+namespace midsun::drivers::stm32g4xx::system {
 
 void Init() { HAL_Init(); }
 

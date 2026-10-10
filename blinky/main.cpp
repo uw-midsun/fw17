@@ -4,7 +4,7 @@
 #include "stm32g4xx_hal/stm32g4xx_hal.h"
 
 int main() {
-  midsun::drivers::system::Init();
+  midsun::drivers::stm32g4xx::system::Init();
 
   __HAL_RCC_GPIOC_CLK_ENABLE();
 

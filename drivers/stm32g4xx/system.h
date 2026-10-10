@@ -1,6 +1,6 @@
 #pragma once
 
-namespace midsun::drivers::system {
+namespace midsun::drivers::stm32g4xx::system {
 
 void Init();
 
