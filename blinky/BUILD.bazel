@@ -10,7 +10,6 @@ cc_binary(
     name = "blinky_cc",
     srcs = [
         "main.cpp",
-        "syscalls.c",
     ],
     additional_linker_inputs = ["//blinky:linker.ld"],
     linkopts = [
