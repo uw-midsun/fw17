@@ -29,6 +29,7 @@ cc_library(
         "@platforms//cpu:armv7e-mf",
     ],
     deps = [
+        "//drivers:gpio",
         "@stm32g4xx-hal-driver//:stm32g4xx_hal",
     ],
 )

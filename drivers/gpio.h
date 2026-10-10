@@ -1,7 +1,5 @@
 #pragma once
 
-#include <tl/expected.h>
-
 #include <cstdint>
 
 namespace midsun::drivers::gpio {
@@ -16,14 +14,14 @@ enum class Direction : std::uint8_t {
 };
 
 class OutputPin {
-  virtual tl::expected<void, Error> Init() noxecept = 0U;
+  virtual void Init() noexcept = 0;
 
-  virtual Direction GetOutput() noexcept = 0U;
+  virtual Direction GetOutput() const noexcept = 0;
 
-  virtual SetOutput(const Direction& direction) noexcept = 0U;
+  virtual void SetOutput(const Direction& direction) noexcept = 0;
 
   // The intended interface of toggle is for it to return the new `Direction`.
-  virtual Direction Toggle() noexcept = 0U;
+  virtual Direction Toggle() noexcept = 0;
 };
 
 }  // namespace midsun::drivers::gpio
