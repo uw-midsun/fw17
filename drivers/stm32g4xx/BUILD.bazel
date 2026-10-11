@@ -1,0 +1,34 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "system",
+    srcs = [
+        "hal_system.c",
+        "system.cpp",
+    ],
+    hdrs = ["system.h"],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "@cmsis-device-g4//:system",
+        "@stm32g4xx-hal-driver//:stm32g4xx_hal",
+    ],
+    alwayslink = True,
+)
+
+cc_library(
+    name = "gpio",
+    hdrs = ["gpio.h"],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "//drivers:gpio",
+        "@stm32g4xx-hal-driver//:stm32g4xx_hal",
+    ],
+)

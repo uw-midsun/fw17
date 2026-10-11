@@ -10,15 +10,15 @@ cc_binary(
     name = "blinky_cc",
     srcs = [
         "main.cpp",
-        "syscalls.c",
-        "system.c",
     ],
-    additional_linker_inputs = ["//blinky:linker.ld"],
+    additional_linker_inputs = [":linker.ld"],
     linkopts = [
-        "-Wl,-T $(location {})".format("//blinky:linker.ld"),
+        "-Wl,-T $(location {})".format(":linker.ld"),
     ],
     tags = ["manual"],
     deps = [
+        "//drivers/stm32g4xx:gpio",
+        "//drivers/stm32g4xx:system",
         "@cmsis-device-g4//:startup_stm32g474xx",
         "@stm32g4xx-hal-driver//:stm32g4xx_hal",
     ],
@@ -26,7 +26,7 @@ cc_binary(
 
 midsun_transition_binary(
     name = "blinky",
-    binary = "//blinky:blinky_cc",
+    binary = ":blinky_cc",
     extra_defines = [
         "STM32G474xx",
     ],
