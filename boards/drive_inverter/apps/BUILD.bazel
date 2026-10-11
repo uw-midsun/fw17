@@ -11,8 +11,6 @@ drive_inverter_app(
     ],
     deps = [
         "//boards/drive_inverter",
-        "//drivers/stm32g4xx:system",
-        "@cmsis-device-g4//:startup_stm32g474xx",
         "@stm32g4xx-hal-driver//:stm32g4xx_hal",
     ],
 )
