@@ -2,6 +2,8 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 
 package(default_visibility = ["//visibility:public"])
 
+exports_files(["linker.ld"])
+
 cc_library(
     name = "drive_inverter",
     srcs = ["drive_inverter.cpp"],
