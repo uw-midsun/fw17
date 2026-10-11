@@ -130,7 +130,7 @@ class OutputPin final : public midsun::drivers::gpio::OutputPin {
 
   static_assert(IsValidPort(kConfig::kPort));
   static_assert(IsValidPin(kConfig::kPin));
-  static_assert(IsValidMode(kConfig::kMode));
+  static_assert(IsOutputMode(kConfig::kMode));
   static_assert(IsValidPull(kConfig::kPull));
   static_assert(IsValidSpeed(kConfig::kSpeed));
 
