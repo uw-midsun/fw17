@@ -1,5 +1,6 @@
 #pragma once
 
+#include <concepts>
 #include <cstdint>
 
 #include "drivers/gpio.h"
@@ -114,26 +115,35 @@ inline GpioInstance GetEnabledInstance(const Port& port) {
   return nullptr;
 }
 
-template <Port kPort, Pin kPin, Mode kMode, Pull kPull, Speed kSpeed>
-class OutputPin final : public midsun::drivers::gpio::OutputPin {
-  static constexpr auto kPinCasted = static_cast<std::uint16_t>(kPin);
+template <typename T>
+concept OutputPinConfig = requires {
+  { T::kPort } -> std::convertible_to<Port>;
+  { T::kPin } -> std::convertible_to<Pin>;
+  { T::kMode } -> std::convertible_to<Mode>;
+  { T::kPull } -> std::convertible_to<Pull>;
+  { T::kSpeed } -> std::convertible_to<Speed>;
+};
 
-  static_assert(IsValidPort(kPort));
-  static_assert(IsValidPin(kPin));
-  static_assert(IsValidMode(kMode));
-  static_assert(IsValidPull(kPull));
-  static_assert(IsValidSpeed(kSpeed));
+template <OutputPinConfig kConfig>
+class OutputPin final : public midsun::drivers::gpio::OutputPin {
+  static constexpr auto kPinCasted = static_cast<std::uint16_t>(kConfig::kPin);
+
+  static_assert(IsValidPort(kConfig::kPort));
+  static_assert(IsValidPin(kConfig::kPin));
+  static_assert(IsValidMode(kConfig::kMode));
+  static_assert(IsValidPull(kConfig::kPull));
+  static_assert(IsValidSpeed(kConfig::kSpeed));
 
  public:
   static OutputPin Init() noexcept {
-    auto instance = GetEnabledInstance(kPort);
+    auto instance = GetEnabledInstance(kConfig::kPort);
     auto pin = OutputPin{instance};
 
     constexpr auto kInit = GPIO_InitTypeDef{
-        .Pin = static_cast<uint32_t>(kPin),
-        .Mode = static_cast<uint32_t>(kMode),
-        .Pull = static_cast<uint32_t>(kPull),
-        .Speed = static_cast<uint32_t>(kSpeed),
+        .Pin = static_cast<uint32_t>(kConfig::kPin),
+        .Mode = static_cast<uint32_t>(kConfig::kMode),
+        .Pull = static_cast<uint32_t>(kConfig::kPull),
+        .Speed = static_cast<uint32_t>(kConfig::kSpeed),
         .Alternate = 0U,
     };
 
