@@ -4,10 +4,6 @@
 
 namespace midsun::drivers::gpio {
 
-enum class Error : std::uint8_t {
-  InitFailed = 0U,
-};
-
 enum class Direction : std::uint8_t {
   Low = 0U,
   High,
