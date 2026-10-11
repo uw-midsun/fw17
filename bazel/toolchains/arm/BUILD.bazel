@@ -14,6 +14,10 @@ DEFAULT_COPTS = [
     "-fdata-sections",
     "-fno-builtin",
     "-fno-strict-aliasing",
+
+    # https://gcc.gnu.org/onlinedocs/gcc/Diagnostic-Message-Formatting-Options.html
+    "-fdiagnostics-urls=auto",
+    "-fdiagnostics-color",
 ]
 
 DEFAULT_CXXOPTS = [
