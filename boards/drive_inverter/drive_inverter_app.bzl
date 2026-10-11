@@ -13,7 +13,7 @@ def drive_inverter_app(name, srcs = [], deps = [], **kwargs):
             "-Wl,-T $(location {})".format(LINKER_SCRIPT),
         ],
         tags = ["manual"],
-        deps = deps,
+        deps = deps + ["@cmsis-device-g4//:startup_stm32g474xx"],
         **kwargs
     )
 
