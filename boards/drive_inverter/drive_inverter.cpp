@@ -1,11 +1,9 @@
-#include <array>
+#include "boards/drive_inverter/drive_inverter.h"
 
 #include "drivers/stm32g4xx/gpio.h"
 #include "drivers/stm32g4xx/system.h"
-#include "stm32g4xx_hal/stm32g4xx_hal.h"
 
 namespace {
-
 namespace stm = midsun::drivers::stm32g4xx;
 
 struct BlinkyPin {
@@ -18,12 +16,13 @@ struct BlinkyPin {
 
 }  // namespace
 
-int main() {
-  midsun::drivers::stm32g4xx::system::Init();
-  auto blinky_pin = stm::gpio::OutputPin<BlinkyPin>::Init();
+namespace midsun::boards::drive_inverter {
 
-  while(true) {
-    blinky_pin.Toggle();
-    HAL_Delay(200U);
-  }
+DriveInverter Init() noexcept {
+  stm::system::Init();
+
+  static auto blinky_pin = stm::gpio::OutputPin<BlinkyPin>::Init();
+
+  return DriveInverter{.blinky_pin = blinky_pin};
 }
+}  // namespace midsun::boards::drive_inverter

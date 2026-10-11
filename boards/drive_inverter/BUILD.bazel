@@ -1,0 +1,14 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "drive_inverter",
+    srcs = ["drive_inverter.cpp"],
+    hdrs = ["drive_inverter.h"],
+    deps = [
+        "//drivers:gpio",
+        "//drivers/stm32g4xx:gpio",
+        "//drivers/stm32g4xx:system",
+    ],
+)
