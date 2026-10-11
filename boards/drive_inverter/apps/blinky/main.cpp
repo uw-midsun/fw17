@@ -6,21 +6,21 @@
 
 namespace {
 
-namespace driver_gpio = midsun::drivers::stm32g4xx::gpio;
+namespace stm = midsun::drivers::stm32g4xx;
 
 struct BlinkyPin {
-  static constexpr auto kPort = driver_gpio::Port::C;
-  static constexpr auto kPin = driver_gpio::Pin::Pin13;
-  static constexpr auto kMode = driver_gpio::Mode::PushPullOutput;
-  static constexpr auto kPull = driver_gpio::Pull::Up;
-  static constexpr auto kSpeed = driver_gpio::Speed::High;
+  static constexpr auto kPort = stm::gpio::Port::C;
+  static constexpr auto kPin = stm::gpio::Pin::Pin13;
+  static constexpr auto kMode = stm::gpio::Mode::PushPullOutput;
+  static constexpr auto kPull = stm::gpio::Pull::Up;
+  static constexpr auto kSpeed = stm::gpio::Speed::High;
 };
 
 }  // namespace
 
 int main() {
   midsun::drivers::stm32g4xx::system::Init();
-  auto blinky_pin = driver_gpio::OutputPin<BlinkyPin>::Init();
+  auto blinky_pin = stm::gpio::OutputPin<BlinkyPin>::Init();
 
   while(true) {
     blinky_pin.Toggle();
