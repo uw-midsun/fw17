@@ -4,13 +4,18 @@
 #include "drivers/stm32g4xx/system.h"
 #include "stm32g4xx_hal/stm32g4xx_hal.h"
 
+namespace {
+
+namespace driver_gpio = midsun::drivers::stm32g4xx::gpio;
+
+}
+
 int main() {
   midsun::drivers::stm32g4xx::system::Init();
 
-  using BlinkyPin = midsun::drivers::stm32g4xx::gpio::OutputPin<
-      midsun::drivers::stm32g4xx::gpio::Port::C, midsun::drivers::stm32g4xx::gpio::Pin::Pin13,
-      midsun::drivers::stm32g4xx::gpio::Mode::PushPullOutput, midsun::drivers::stm32g4xx::gpio::Pull::Up,
-      midsun::drivers::stm32g4xx::gpio::Speed::VeryHigh>;
+  using BlinkyPin =
+      driver_gpio::OutputPin<driver_gpio::Port::C, driver_gpio::Pin::Pin13, driver_gpio::Mode::PushPullOutput,
+                             driver_gpio::Pull::Up, driver_gpio::Speed::VeryHigh>;
 
   auto blinky_pin = BlinkyPin::Init();
 

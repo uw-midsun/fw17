@@ -29,6 +29,7 @@ enum class Pin {
 
 constexpr bool IsValidPin(Pin pin) { return IS_GPIO_PIN(pin); }
 
+// TODO(lorenzogood): Factor out into global header if adding new MCU.
 enum class Mode {
   Input = GPIO_MODE_INPUT,
   PushPullOutput = GPIO_MODE_OUTPUT_PP,
