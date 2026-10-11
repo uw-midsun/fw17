@@ -115,35 +115,26 @@ inline GpioInstance GetEnabledInstance(const Port& port) {
   return nullptr;
 }
 
-template <typename T>
-concept OutputPinConfig = requires {
-  { T::kPort } -> std::convertible_to<Port>;
-  { T::kPin } -> std::convertible_to<Pin>;
-  { T::kMode } -> std::convertible_to<Mode>;
-  { T::kPull } -> std::convertible_to<Pull>;
-  { T::kSpeed } -> std::convertible_to<Speed>;
-};
-
-template <OutputPinConfig kConfig>
+template <typename Config>
 class OutputPin final : public midsun::drivers::gpio::OutputPin {
-  static constexpr auto kPinCasted = static_cast<std::uint16_t>(kConfig::kPin);
+  static constexpr auto kPinCasted = static_cast<std::uint16_t>(Config::kPin);
 
-  static_assert(IsValidPort(kConfig::kPort));
-  static_assert(IsValidPin(kConfig::kPin));
-  static_assert(IsOutputMode(kConfig::kMode));
-  static_assert(IsValidPull(kConfig::kPull));
-  static_assert(IsValidSpeed(kConfig::kSpeed));
+  static_assert(IsValidPort(Config::kPort));
+  static_assert(IsValidPin(Config::kPin));
+  static_assert(IsOutputMode(Config::kMode));
+  static_assert(IsValidPull(Config::kPull));
+  static_assert(IsValidSpeed(Config::kSpeed));
 
  public:
   static OutputPin Init() noexcept {
-    auto instance = GetEnabledInstance(kConfig::kPort);
+    auto instance = GetEnabledInstance(Config::kPort);
     auto pin = OutputPin{instance};
 
     constexpr auto kInit = GPIO_InitTypeDef{
-        .Pin = static_cast<uint32_t>(kConfig::kPin),
-        .Mode = static_cast<uint32_t>(kConfig::kMode),
-        .Pull = static_cast<uint32_t>(kConfig::kPull),
-        .Speed = static_cast<uint32_t>(kConfig::kSpeed),
+        .Pin = static_cast<uint32_t>(Config::kPin),
+        .Mode = static_cast<uint32_t>(Config::kMode),
+        .Pull = static_cast<uint32_t>(Config::kPull),
+        .Speed = static_cast<uint32_t>(Config::kSpeed),
         .Alternate = 0U,
     };
 
