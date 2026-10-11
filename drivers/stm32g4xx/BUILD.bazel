@@ -4,10 +4,7 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "system",
-    srcs = [
-        "hal_system.c",
-        "system.cpp",
-    ],
+    srcs = ["system.cpp"],
     hdrs = ["system.h"],
     target_compatible_with = [
         "@platforms//os:none",
@@ -17,7 +14,6 @@ cc_library(
         "@cmsis-device-g4//:system",
         "@stm32g4xx-hal-driver//:stm32g4xx_hal",
     ],
-    alwayslink = True,
 )
 
 cc_library(

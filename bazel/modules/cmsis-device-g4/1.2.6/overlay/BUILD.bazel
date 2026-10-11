@@ -4,9 +4,13 @@ package(default_visibility = ["//visibility:public"])
 
 cc_library(
     name = "system",
+    srcs = [
+        "Source/Templates/system_stm32g4xx.c",
+    ],
     hdrs = glob(["Include/*.h"]),
     strip_include_prefix = "Include",
     deps = ["@cmsis-core"],
+    alwayslink = True,
 )
 
 cc_library(
