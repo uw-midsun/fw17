@@ -9,7 +9,7 @@ exports_files(["linker.ld"])
 cc_binary(
     name = "blinky_cc",
     srcs = [
-        "main.cpp",
+        "blinky.cpp",
     ],
     additional_linker_inputs = [":linker.ld"],
     linkopts = [
