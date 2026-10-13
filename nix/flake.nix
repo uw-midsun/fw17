@@ -38,6 +38,7 @@
               clang-tools
 
               treefmt
+              zizmor
 
               # Formatters:
               bazel-buildtools
