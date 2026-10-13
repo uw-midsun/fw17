@@ -1,14 +1,29 @@
-name: Pre Merge Checks
+name: Premerge Checks
 
 on:
   push:
-        branches: [main]
+    branches: [main]
   pull_request:
 
 permissions:
   pull-requests: read
 
 jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        name: Checkout Repository
+        with:
+          persist-credentials: false
+
+      - uses: DeterminateSystems/determinate-nix-action@d0c908e6cbe9f89f36ed8205a3ab6f092636916a
+        name: Install Nix
+
+      - name: Run Treefmt
+        run: nix develop ./nix#default -c bazel build ...
+
   format:
     name: Treefmt Format
     runs-on: ubuntu-latest
@@ -23,5 +38,3 @@ jobs:
 
       - name: Run Treefmt
         run: nix develop ./nix#default -c treefmt --fail-on-change
-
-
