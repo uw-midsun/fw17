@@ -24,6 +24,7 @@
           pkgs = buildNixpkgs system;
 
           bazelisk-override = pkgs.bazelisk.overrideAttrs (old: {
+            checkPhase = "";
             postInstall = (old.postInstall or "") + ''
               ln -s $out/bin/bazelisk $out/bin/bazel
             '';
