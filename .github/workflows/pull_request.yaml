@@ -39,3 +39,16 @@ jobs:
 
       - name: Run Treefmt
         run: nix develop ./nix#default -c treefmt --fail-on-change
+    zizmor:
+      name: Zizmor
+      runs-on: ubuntu-slim
+      permissions:
+        security-events: write
+      steps:
+        - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+          name: Checkout Repository
+          with:
+            persist-credentials: false
+
+        - uses: zizmorcore/zizmor-action@cc914d7f3750a2d13d75c7f184a1060aa0e9d482
+          name: Run zizmor
