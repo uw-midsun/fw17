@@ -51,3 +51,5 @@ jobs:
 
       - uses: zizmorcore/zizmor-action@cc914d7f3750a2d13d75c7f184a1060aa0e9d482
         name: Run zizmor
+        with:
+          advanced-security: false
