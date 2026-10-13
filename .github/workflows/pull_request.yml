@@ -21,6 +21,6 @@ jobs:
         name: Install Nix
 
       - name: Run Treefmt
-        run: nix develop .#nix -c treefmt --fail-on-change
+        run: nix develop ./nix#default -c treefmt --fail-on-change
 
 
