@@ -25,7 +25,6 @@ enum class Pin {
   Pin13 = GPIO_PIN_13,
   Pin14 = GPIO_PIN_14,
   Pin15 = GPIO_PIN_15,
-  All = GPIO_PIN_0,
 };
 
 constexpr bool IsValidPin(Pin pin) { return IS_GPIO_PIN(pin); }
@@ -143,28 +142,16 @@ class OutputPin final : public midsun::drivers::gpio::OutputPin {
     return pin;
   }
 
-  midsun::drivers::gpio::Direction GetOutput() const noexcept override {
-    const auto state = HAL_GPIO_ReadPin(instance_, kPinCasted);
-    if(state == GPIO_PIN_RESET) {
-      return midsun::drivers::gpio::Direction::Low;
-    }
-    return midsun::drivers::gpio::Direction::High;
-  }
-
-  void SetOutput(const midsun::drivers::gpio::Direction& direction) noexcept override {
+  void SetOutput(const midsun::drivers::gpio::Level& direction) noexcept override {
     auto hal_direction = GPIO_PIN_SET;
-    if(direction == midsun::drivers::gpio::Direction::Low) {
+    if(direction == midsun::drivers::gpio::Level::Low) {
       hal_direction = GPIO_PIN_RESET;
     }
 
     HAL_GPIO_WritePin(instance_, kPinCasted, hal_direction);
   }
 
-  midsun::drivers::gpio::Direction Toggle() noexcept override {
-    HAL_GPIO_TogglePin(instance_, kPinCasted);
-
-    return GetOutput();
-  }
+  void Toggle() noexcept override { HAL_GPIO_TogglePin(instance_, kPinCasted); }
 
  private:
   constexpr OutputPin(const GpioInstance& instance) : instance_{instance} {}
