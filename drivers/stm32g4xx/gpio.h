@@ -142,13 +142,21 @@ class OutputPin final : public midsun::drivers::gpio::OutputPin {
     return pin;
   }
 
-  void SetOutput(const midsun::drivers::gpio::Level& direction) noexcept override {
-    auto hal_direction = GPIO_PIN_SET;
-    if(direction == midsun::drivers::gpio::Level::Low) {
-      hal_direction = GPIO_PIN_RESET;
+  void SetOutput(const midsun::drivers::gpio::Level& level) noexcept override {
+    using midsun::drivers::gpio::Level;
+    auto hal_level = GPIO_PIN_RESET;
+    switch(level) {
+      case Level::Low: {
+        hal_level = GPIO_PIN_RESET;
+        break;
+      }
+      case Level::High: {
+        hal_level = GPIO_PIN_SET;
+        break;
+      }
     }
 
-    HAL_GPIO_WritePin(instance_, kPinCasted, hal_direction);
+    HAL_GPIO_WritePin(instance_, kPinCasted, hal_level);
   }
 
   void Toggle() noexcept override { HAL_GPIO_TogglePin(instance_, kPinCasted); }

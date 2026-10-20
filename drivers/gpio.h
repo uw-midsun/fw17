@@ -11,7 +11,7 @@ enum class Level : std::uint8_t {
 
 class OutputPin {
  public:
-  virtual void SetOutput(const Level& direction) noexcept = 0;
+  virtual void SetOutput(const Level& level) noexcept = 0;
   virtual void Toggle() noexcept = 0;
 };
 
