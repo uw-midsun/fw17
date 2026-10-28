@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+cc_test(
+    name = "spsc_test",
+    srcs = ["spsc_test.cpp"],
+    deps = [
+        "//util:spsc",
+        "@googletest//:gtest_main",
+    ],
+)
