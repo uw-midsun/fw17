@@ -62,7 +62,8 @@ class Queue {
   }
 
   std::optional<T> Pop() noexcept {
-    T t{};
+    auto t = T{};
+
     if(!Pop(std::span{&t, 1U})) {
       return std::nullopt;
     }
