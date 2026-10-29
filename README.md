@@ -4,10 +4,10 @@ This repository contains all firmware for the [University of Waterloo](https://u
 
 ## Getting Started:
 
-**Currently, we only support building & developing on `x86_64` Ubuntu Linux and Ubuntu Linux systems.**
+**Currently, we only support building & developing on `x86_64` Ubuntu Linux (WSL Included) systems.**
 
 1. Install [Nix](https://nixos.org/) using the [Determinate Systems Nix Installer](https://determinate.systems/install/).
-2. Run `nix develop` in the repository root.
+2. Run `nix develop ./nix` in the repository root.
 3. Run `bazel build //...`.
 
 ### Convenience:
