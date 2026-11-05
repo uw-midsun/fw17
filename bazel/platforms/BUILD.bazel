@@ -7,3 +7,11 @@ platform(
         "@platforms//cpu:armv7e-mf",  # Cortex M4 With FPU.
     ],
 )
+
+platform(
+    name = "stm32u5xx",
+    constraint_values = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv8-m",  # Cortex M-33.
+    ],
+)
