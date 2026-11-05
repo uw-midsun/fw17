@@ -1,2 +1,3 @@
 .git
 bazel/modules
+.direnv/
