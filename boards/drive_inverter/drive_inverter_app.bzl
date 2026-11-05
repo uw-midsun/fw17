@@ -1,7 +1,7 @@
 load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
 load("//bazel:transitions.bzl", "midsun_transition_binary")
 
-LINKER_SCRIPT = "//boards/drive_inverter:linker.ld"
+LINKER_SCRIPT = "//third_party/stm32g4:STM32G474RETx.ld"
 
 def drive_inverter_app(name, srcs = [], deps = [], **kwargs):
     binary_name = name + "_cc"

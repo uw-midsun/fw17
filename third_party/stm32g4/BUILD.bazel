@@ -1,0 +1,26 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+exports_files(["STM32G474RETx.ld"])
+
+cc_library(
+    name = "stm32g4xx_hal_conf",
+    hdrs = ["stm32g4xx_hal_conf.h"],
+    include_prefix = "stm32g4xx_hal",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)
+
+cc_library(
+    name = "system",
+    srcs = ["system_stm32g4xx.c"],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = ["@cmsis-device-g4//:system"],
+    alwayslink = True,
+)
