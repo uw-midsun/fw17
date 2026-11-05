@@ -17,6 +17,7 @@ cc_library(
     strip_include_prefix = "Inc",
     deps = [
         "@@//third_party/stm32g4:stm32g4xx_hal_conf",
+        "@@//third_party/stm32g4:system",
         "@cmsis-device-g4//:system",
     ],
 )

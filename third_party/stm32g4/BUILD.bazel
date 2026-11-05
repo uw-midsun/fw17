@@ -9,3 +9,10 @@ cc_library(
     hdrs = ["stm32g4xx_hal_conf.h"],
     include_prefix = "stm32g4xx_hal",
 )
+
+cc_library(
+    name = "system",
+    srcs = ["system_stm32g4xx.c"],
+    deps = ["@cmsis-device-g4//:system"],
+    alwayslink = True,
+)
