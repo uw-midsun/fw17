@@ -14,6 +14,7 @@ bazel_dep(name = "cmsis-device-g4", version = "1.2.6")
 bazel_dep(name = "cmsis-device-u5", version = "1.4.3")
 bazel_dep(name = "cmsis-core", version = "6.3.0")
 bazel_dep(name = "stm32g4xx-hal-driver", version = "1.2.6")
+bazel_dep(name = "stm32u5xx-hal-driver", version = "1.6.3")
 bazel_dep(name = "tl-expected", version = "1.3.1")
 bazel_dep(name = "mp-units", version = "2.5.0.bcr.0")
 

@@ -9,6 +9,16 @@ cc_library(
         "@platforms//os:none",
         "@platforms//cpu:armv8-m",
     ],
-    deps = ["@cmsis-device-g4//:system"],
+    deps = ["@cmsis-device-u5//:system"],
     alwayslink = True,
+)
+
+cc_library(
+    name = "stm32u5xx_hal_conf",
+    hdrs = ["stm32u5xx_hal_conf.h"],
+    include_prefix = "stm32u5xx_hal",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv8-m",
+    ],
 )
