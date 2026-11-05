@@ -52,22 +52,12 @@
 /* Entry Point */
 ENTRY(Reset_Handler)
 
-/* Specify the memory areas. The top 8K of flash (4 pages of 2K) is carved out
- * of FLASH and given to STORAGE, which holds the A/B journaled config and
- * encoder calibration records. See Core/Src/app/storage/ */
+/* Specify the memory areas. */
 MEMORY
 {
 RAM     (xrw) : ORIGIN = 0x20000000, LENGTH = 128K
-FLASH   (rx)  : ORIGIN = 0x08000000, LENGTH = 504K
-STORAGE (r)   : ORIGIN = 0x0807E000, LENGTH = 8K
+FLASH   (rx)  : ORIGIN = 0x08000000, LENGTH = 512K
 }
-
-/* Slot symbols consumed by Core/Src/app/storage. Keeping the layout in the
- * linker script means C and YAML stop carrying magic addresses */
-_config_slot_a = ORIGIN(STORAGE) + 0 * 2K;
-_config_slot_b = ORIGIN(STORAGE) + 1 * 2K;
-_calib_slot_a  = ORIGIN(STORAGE) + 2 * 2K;
-_calib_slot_b  = ORIGIN(STORAGE) + 3 * 2K;
 
 /* Highest address of the user mode stack */
 _estack = ORIGIN(RAM) + LENGTH(RAM);    /* end of RAM */

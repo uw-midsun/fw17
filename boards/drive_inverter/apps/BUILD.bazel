@@ -2,8 +2,6 @@ load("//boards/drive_inverter:drive_inverter_app.bzl", "drive_inverter_app")
 
 package(default_visibility = ["//visibility:public"])
 
-exports_files(["linker.ld"])
-
 drive_inverter_app(
     name = "blinky",
     srcs = [
