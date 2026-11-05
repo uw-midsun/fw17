@@ -12,6 +12,6 @@ platform(
     name = "stm32u5xx",
     constraint_values = [
         "@platforms//os:none",
-        "@platforms//cpu:armv8-m",  # Cortex M-33.
+        "@platforms//cpu:armv8-m",  # Cortex M-33 With FPU.
     ],
 )
