@@ -57,3 +57,25 @@ arm_none_eabi_toolchain(
         "@platforms//cpu:armv7e-mf",
     ],
 )
+
+arm_none_eabi_toolchain(
+    name = "armv8m_gcc_toolchain",
+    conlyopts = DEFAULT_CONLYOPTS,
+    copts = DEFAULT_COPTS + [
+        "-mcpu=cortex-m33",
+        "-mthumb",
+        "-mfloat-abi=hard",
+        "-mfpu=fpv5-sp-d16",
+    ],
+    cxxopts = DEFAULT_CXXOPTS,
+    linkopts = DEFAULT_LINKOPTS + [
+        "-mcpu=cortex-m33",
+        "-mthumb",
+        "-mfloat-abi=hard",
+        "-mfpu=fpv5-sp-d16",
+    ],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv8-m",
+    ],
+)

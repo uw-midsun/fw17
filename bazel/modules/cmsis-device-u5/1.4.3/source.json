@@ -1,0 +1,9 @@
+{
+  "url": "https://github.com/STMicroelectronics/cmsis-device-u5/archive/refs/tags/v1.4.3.tar.gz",
+  "archive_type": "tar.gz",
+  "strip_prefix": "cmsis-device-u5-1.4.3",
+  "integrity": "sha256-T+1jPMGk3c851/RyeIxMfNTv/cFX0yMfy989VFjPQoo=",
+  "overlay": {
+    "BUILD.bazel": "sha256-iN7bCK6T9QkZTjGg4lpGZL8bexZ0VuRY1m5qQ8NV1Uk="
+  }
+}

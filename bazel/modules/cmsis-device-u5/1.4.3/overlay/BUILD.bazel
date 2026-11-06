@@ -1,0 +1,16 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "system",
+    hdrs = glob(["Include/*.h"]),
+    strip_include_prefix = "Include",
+    deps = ["@cmsis-core"],
+    alwayslink = True,
+)
+
+cc_library(
+    name = "startup_stm32u575xx",
+    srcs = ["Source/Templates/gcc/startup_stm32u575xx.s"],
+)
