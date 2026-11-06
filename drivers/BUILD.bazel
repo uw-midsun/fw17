@@ -9,3 +9,11 @@ cc_library(
         "@tl-expected",
     ],
 )
+
+cc_library(
+    name = "crc",
+    hdrs = ["crc.h"],
+    deps = [
+        "@tl-expected",
+    ],
+)
