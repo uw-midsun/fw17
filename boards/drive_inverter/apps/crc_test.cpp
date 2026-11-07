@@ -1,4 +1,3 @@
-#include <array>
 #include <cassert>
 
 #include "stm32g4xx_hal/stm32g4xx_hal.h"
