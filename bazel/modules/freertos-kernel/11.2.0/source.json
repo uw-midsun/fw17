@@ -1,0 +1,9 @@
+{
+  "url": "https://github.com/FreeRTOS/FreeRTOS-Kernel/archive/refs/tags/V11.2.0.tar.gz",
+  "archive_type": "tar.gz",
+  "strip_prefix": "FreeRTOS-Kernel-11.2.0",
+  "integrity": "sha256-4UjTpEKsdlLJmOCpMsTMKjxqv/ZqOgqWp2eMDNCS1Bw=",
+  "overlay": {
+    "BUILD.bazel": "sha256-It/pI/bhNJjfDMUoQ0+4q5xLMtQBTo43Agzam9itM90="
+  }
+}
