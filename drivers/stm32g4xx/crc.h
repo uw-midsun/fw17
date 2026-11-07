@@ -15,7 +15,7 @@ enum class Length {
   Length8 = CRC_POLYLENGTH_8B,
 };
 
-constexpr bool IsValidLength(const Length length) {
+constexpr bool IsValidLength(const Length& length) {
   switch (length) {
     case Length::Length32:
     case Length::Length16:
@@ -32,7 +32,7 @@ enum class InputInversionMode {
   Word = CRC_INPUTDATA_INVERSION_WORD,
 };
 
-constexpr bool IsValidInputInversionMode(const InputInversionMode inputInversionMode) {
+constexpr bool IsValidInputInversionMode(const InputInversionMode& inputInversionMode) {
   switch (inputInversionMode) {
     case InputInversionMode::None:
     case InputInversionMode::Byte:
@@ -48,7 +48,7 @@ enum class OutputInversionMode {
   Disable = CRC_OUTPUTDATA_INVERSION_DISABLE,
 };
 
-constexpr bool IsValidOutputInversionMode(const OutputInversionMode outputInversionMode) {
+constexpr bool IsValidOutputInversionMode(const OutputInversionMode& outputInversionMode) {
   switch (outputInversionMode) {
     case OutputInversionMode::Enable:
     case OutputInversionMode::Disable:
