@@ -124,11 +124,15 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
         .OutputDataInversionMode = static_cast<uint32_t>(Config::kOutputInversionMode),
     };
     
-    auto crc = Crc{};
-    crc.handle_.Instance = CRC;
-    crc.handle_.Init = kInit;
-    crc.handle_.InputDataFormat = CRC_INPUTDATA_FORMAT_BYTES;
-
+    auto handle = CRC_HandleTypeDef{
+      .Instance = CRC,
+      .Init = kInit,
+      .Lock = HAL_UNLOCKED,
+      .State = HAL_CRC_STATE_RESET,
+      .InputDataFormat = CRC_INPUTDATA_FORMAT_BYTES,
+    };
+    auto crc = Crc{handle};
+    
     HAL_CRC_Init(&crc.handle_);
 
     return crc;
@@ -143,7 +147,7 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
   }
 
  private:
-  constexpr Crc() = default;
+  constexpr Crc(const CRC_HandleTypeDef& handle) : handle_(handle) {}
 
   CRC_HandleTypeDef handle_;
 };
