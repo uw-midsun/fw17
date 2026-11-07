@@ -16,7 +16,7 @@ enum class Length {
 };
 
 constexpr bool IsValidLength(const Length& length) {
-  switch (length) {
+  switch(length) {
     case Length::Length32:
     case Length::Length16:
     case Length::Length8:
@@ -33,7 +33,7 @@ enum class InputInversionMode {
 };
 
 constexpr bool IsValidInputInversionMode(const InputInversionMode& inputInversionMode) {
-  switch (inputInversionMode) {
+  switch(inputInversionMode) {
     case InputInversionMode::None:
     case InputInversionMode::Byte:
     case InputInversionMode::HalfWord:
@@ -49,14 +49,13 @@ enum class OutputInversionMode {
 };
 
 constexpr bool IsValidOutputInversionMode(const OutputInversionMode& outputInversionMode) {
-  switch (outputInversionMode) {
+  switch(outputInversionMode) {
     case OutputInversionMode::Enable:
     case OutputInversionMode::Disable:
       return true;
   }
   return false;
 }
-
 
 // Config standards based on AUTOSAR CRC Specs
 struct Crc32Config {  // IEEE 803.2 CRC32 Ethernet Standard
@@ -81,7 +80,7 @@ struct Crc16Config {  // CCITT-FALSE CRC16 Standard
   static constexpr uint32_t kResidue = 0x0000;
 };
 
-struct Crc8Config {   // SAE-J1850 CRC8 Standard
+struct Crc8Config {  // SAE-J1850 CRC8 Standard
   static constexpr uint32_t kPoly = 0x1D;
   static constexpr Length kLength = Length::Length8;
   static constexpr uint32_t kInit = 0xFF;
@@ -96,11 +95,11 @@ template <typename T>
 concept UnsignedIntegral = std::is_integral_v<T> && std::is_unsigned_v<T>;
 
 template <Length L>
-using ReturnTypeFor = std::conditional_t<L == Length::Length8, uint8_t,
-                        std::conditional_t<L == Length::Length16, uint16_t, uint32_t>>;
+using ReturnTypeFor =
+    std::conditional_t<L == Length::Length8, uint8_t, std::conditional_t<L == Length::Length16, uint16_t, uint32_t>>;
 
 template <typename Config>
-class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength>>  {
+class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength>> {
   static_assert(UnsignedIntegral<decltype(Config::kPoly)>);
   static_assert(UnsignedIntegral<decltype(Config::kInit)>);
   static_assert(IsValidLength(Config::kLength));
@@ -113,7 +112,7 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
  public:
   static Crc Init() noexcept {
     __HAL_RCC_CRC_CLK_ENABLE();
-    
+
     constexpr auto kInit = CRC_InitTypeDef{
         .DefaultPolynomialUse = DEFAULT_POLYNOMIAL_DISABLE,
         .DefaultInitValueUse = DEFAULT_INIT_VALUE_DISABLE,
@@ -123,23 +122,23 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
         .InputDataInversionMode = static_cast<uint32_t>(Config::kInputInversionMode),
         .OutputDataInversionMode = static_cast<uint32_t>(Config::kOutputInversionMode),
     };
-    
+
     auto handle = CRC_HandleTypeDef{
-      .Instance = CRC,
-      .Init = kInit,
-      .Lock = HAL_UNLOCKED,
-      .State = HAL_CRC_STATE_RESET,
-      .InputDataFormat = CRC_INPUTDATA_FORMAT_BYTES,
+        .Instance = CRC,
+        .Init = kInit,
+        .Lock = HAL_UNLOCKED,
+        .State = HAL_CRC_STATE_RESET,
+        .InputDataFormat = CRC_INPUTDATA_FORMAT_BYTES,
     };
     auto crc = Crc{handle};
-    
+
     HAL_CRC_Init(&crc.handle_);
 
     return crc;
   }
 
-  ReturnType Calculate(const uint8_t *pBuffer, uint32_t BufferLength) noexcept override {
-    uint32_t result = HAL_CRC_Calculate(&this->handle_, reinterpret_cast<const uint32_t *>(pBuffer), BufferLength);
+  ReturnType Calculate(const uint8_t* pBuffer, uint32_t BufferLength) noexcept override {
+    uint32_t result = HAL_CRC_Calculate(&this->handle_, reinterpret_cast<const uint32_t*>(pBuffer), BufferLength);
 
     result ^= Config::kXor;
 
@@ -152,4 +151,4 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
   CRC_HandleTypeDef handle_;
 };
 
-}
+}  // namespace midsun::drivers::stm32g4xx::crc
