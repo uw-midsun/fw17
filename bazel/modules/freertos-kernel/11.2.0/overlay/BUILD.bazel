@@ -17,10 +17,21 @@ label_flag(
 CM33_NTZ = "portable/GCC/ARM_CM33_NTZ/non_secure/"
 
 cc_library(
-    name = 'kernel',
-    srcs = ["croutine.c", "event_groups.c", "list.c", "queue.c",
-        "stream_buffer.c", "tasks.c", "timers.c", CM33_NTZ + "port.c",
-        CM33_NTZ + "portasm.c"],
-    hdrs = glob(["include/*.h", CM33_NTZ + "*.h"]),
+    name = "kernel",
+    srcs = [
+        "croutine.c",
+        "event_groups.c",
+        "list.c",
+        "queue.c",
+        "stream_buffer.c",
+        "tasks.c",
+        "timers.c",
+        CM33_NTZ + "port.c",
+        CM33_NTZ + "portasm.c",
+    ],
+    hdrs = glob([
+        "include/*.h",
+        CM33_NTZ + "*.h",
+    ]),
     deps = [":freertos_config"],
 )
