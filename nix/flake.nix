@@ -43,6 +43,7 @@
               bazel-buildtools
               nixpkgs-fmt
               prettier
+              shellcheck
             ];
           };
         }
