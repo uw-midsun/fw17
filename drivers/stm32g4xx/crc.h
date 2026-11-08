@@ -32,8 +32,8 @@ enum class InputInversionMode {
   Word = CRC_INPUTDATA_INVERSION_WORD,
 };
 
-constexpr bool IsValidInputInversionMode(const InputInversionMode& inputInversionMode) {
-  switch(inputInversionMode) {
+constexpr bool IsValidInputInversionMode(const InputInversionMode& input_inversion_mode) {
+  switch(input_inversion_mode) {
     case InputInversionMode::None:
     case InputInversionMode::Byte:
     case InputInversionMode::HalfWord:
@@ -48,8 +48,8 @@ enum class OutputInversionMode {
   Disable = CRC_OUTPUTDATA_INVERSION_DISABLE,
 };
 
-constexpr bool IsValidOutputInversionMode(const OutputInversionMode& outputInversionMode) {
-  switch(outputInversionMode) {
+constexpr bool IsValidOutputInversionMode(const OutputInversionMode& output_inversion_mode) {
+  switch(output_inversion_mode) {
     case OutputInversionMode::Enable:
     case OutputInversionMode::Disable:
       return true;
@@ -139,9 +139,9 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
   ReturnType Calculate(std::span<const uint8_t> data) noexcept override {
     // Cast uint8_t data to uint32_t data for HAL function type matching,
     // CRC_INPUTDATA_FORMAT_BYTES above ensures data gets casted back to uint8_t before being used
-    const auto spanData = std::bit_cast<const uint32_t*>(data.data());
-    const auto spanSize = static_cast<uint32_t>(data.size());
-    auto result = HAL_CRC_Calculate(&this->handle_, spanData, spanSize);
+    const auto span_data = std::bit_cast<const uint32_t*>(data.data());
+    const auto span_size = static_cast<uint32_t>(data.size());
+    auto result = HAL_CRC_Calculate(&this->handle_, span_data, span_size);
 
     // XOR result to match AUTOSAR CRC spec
     result ^= Config::kXor;
