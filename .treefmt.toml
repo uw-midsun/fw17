@@ -7,7 +7,7 @@ command = "buildifier"
 includes = ["*.bazel", "*.bzl"]
 
 [formatter.clang-format]
-command = "./tools/clang-format"
+command = "./tools/clang-format.sh"
 includes = [".cpp", ".c", ".h", ".hpp"]
 
 [formatter.prettier]
@@ -25,3 +25,9 @@ includes = [
  "*.ts",
  "*.yaml",
 ]
+
+# Shellcheck also lints files in it's default configuration.
+# Once we have linting through other means (aspect rules lint), it might be worth it to change the args here.
+[formatter.shellcheck]
+command = "shellcheck"
+includes = ["*.sh", "*.bash", "*.envrc", "*.envrc.*"]
