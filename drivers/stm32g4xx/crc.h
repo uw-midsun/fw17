@@ -1,7 +1,6 @@
 #pragma once
 
 #include <concepts>
-#include <cstdint>
 #include <type_traits>
 
 #include "drivers/crc.h"
@@ -137,8 +136,9 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
     return crc;
   }
 
-  ReturnType Calculate(const uint8_t* pBuffer, uint32_t BufferLength) noexcept override {
-    uint32_t result = HAL_CRC_Calculate(&this->handle_, reinterpret_cast<const uint32_t*>(pBuffer), BufferLength);
+  ReturnType Calculate(std::span<const uint8_t> data) noexcept override {
+    uint32_t result = HAL_CRC_Calculate(&this->handle_, reinterpret_cast<const uint32_t*>(data.data()),
+                                        static_cast<uint32_t>(data.size()));
 
     result ^= Config::kXor;
 
