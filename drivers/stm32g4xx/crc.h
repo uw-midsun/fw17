@@ -1,5 +1,6 @@
 #pragma once
 
+#include <bit>
 #include <concepts>
 #include <type_traits>
 
@@ -58,36 +59,36 @@ constexpr bool IsValidOutputInversionMode(const OutputInversionMode& outputInver
 
 // Config standards based on AUTOSAR CRC Specs
 struct Crc32Config {  // IEEE 803.2 CRC32 Ethernet Standard
-  static constexpr uint32_t kPoly = 0x04C11DB7;
-  static constexpr Length kLength = Length::Length32;
-  static constexpr uint32_t kInit = 0xFFFFFFFF;
-  static constexpr InputInversionMode kInputInversionMode = InputInversionMode::Byte;
-  static constexpr OutputInversionMode kOutputInversionMode = OutputInversionMode::Enable;
-  static constexpr uint32_t kXor = 0xFFFFFFFF;
-  static constexpr uint32_t kCheck = 0xCBF43926;
-  static constexpr uint32_t kResidue = 0xDEBB20E3;
+  static constexpr auto kPoly = uint32_t{0x04C11DB7};
+  static constexpr auto kLength = Length::Length32;
+  static constexpr auto kInit = uint32_t{0xFFFFFFFF};
+  static constexpr auto kInputInversionMode = InputInversionMode::Byte;
+  static constexpr auto kOutputInversionMode = OutputInversionMode::Enable;
+  static constexpr auto kXor = uint32_t{0xFFFFFFFF};
+  static constexpr auto kCheck = uint32_t{0xCBF43926};
+  static constexpr auto kResidue = uint32_t{0xDEBB20E3};
 };
 
 struct Crc16Config {  // CCITT-FALSE CRC16 Standard
-  static constexpr uint32_t kPoly = 0x1021;
-  static constexpr Length kLength = Length::Length16;
-  static constexpr uint32_t kInit = 0xFFFF;
-  static constexpr InputInversionMode kInputInversionMode = InputInversionMode::None;
-  static constexpr OutputInversionMode kOutputInversionMode = OutputInversionMode::Disable;
-  static constexpr uint32_t kXor = 0x0000;
-  static constexpr uint32_t kCheck = 0x29B1;
-  static constexpr uint32_t kResidue = 0x0000;
+  static constexpr auto kPoly = uint32_t{0x1021};
+  static constexpr auto kLength = Length::Length16;
+  static constexpr auto kInit = uint32_t{0xFFFF};
+  static constexpr auto kInputInversionMode = InputInversionMode::None;
+  static constexpr auto kOutputInversionMode = OutputInversionMode::Disable;
+  static constexpr auto kXor = uint32_t{0x0000};
+  static constexpr auto kCheck = uint32_t{0x29B1};
+  static constexpr auto kResidue = uint32_t{0x0000};
 };
 
 struct Crc8Config {  // SAE-J1850 CRC8 Standard
-  static constexpr uint32_t kPoly = 0x1D;
-  static constexpr Length kLength = Length::Length8;
-  static constexpr uint32_t kInit = 0xFF;
-  static constexpr InputInversionMode kInputInversionMode = InputInversionMode::None;
-  static constexpr OutputInversionMode kOutputInversionMode = OutputInversionMode::Disable;
-  static constexpr uint32_t kXor = 0xFF;
-  static constexpr uint32_t kCheck = 0x4B;
-  static constexpr uint32_t kResidue = 0xC4;
+  static constexpr auto kPoly = uint32_t{0x1D};
+  static constexpr auto kLength = Length::Length8;
+  static constexpr auto kInit = uint32_t{0xFF};
+  static constexpr auto kInputInversionMode = InputInversionMode::None;
+  static constexpr auto kOutputInversionMode = OutputInversionMode::Disable;
+  static constexpr auto kXor = uint32_t{0xFF};
+  static constexpr auto kCheck = uint32_t{0x4B};
+  static constexpr auto kResidue = uint32_t{0xC4};
 };
 
 template <typename T>
@@ -132,14 +133,17 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
     auto crc = Crc{handle};
 
     HAL_CRC_Init(&crc.handle_);
-
     return crc;
   }
 
   ReturnType Calculate(std::span<const uint8_t> data) noexcept override {
-    uint32_t result = HAL_CRC_Calculate(&this->handle_, reinterpret_cast<const uint32_t*>(data.data()),
-                                        static_cast<uint32_t>(data.size()));
+    // Cast uint8_t data to uint32_t data for HAL function type matching,
+    // CRC_INPUTDATA_FORMAT_BYTES above ensures data gets casted back to uint8_t before being used
+    const auto spanData = std::bit_cast<const uint32_t*>(data.data());
+    const auto spanSize = static_cast<uint32_t>(data.size());
+    auto result = HAL_CRC_Calculate(&this->handle_, spanData, spanSize);
 
+    // XOR result to match AUTOSAR CRC spec
     result ^= Config::kXor;
 
     return static_cast<ReturnType>(result);
