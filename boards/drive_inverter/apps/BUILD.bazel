@@ -12,15 +12,3 @@ drive_inverter_app(
         "@stm32g4xx-hal-driver//:stm32g4xx_hal",
     ],
 )
-
-drive_inverter_app(
-    name = "crc_test",
-    srcs = [
-        "crc_test.cpp",
-    ],
-    deps = [
-        "//drivers/stm32g4xx:crc",
-        "//drivers/stm32g4xx:system",
-        "@stm32g4xx-hal-driver//:stm32g4xx_hal",
-    ],
-)
