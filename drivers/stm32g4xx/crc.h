@@ -100,7 +100,7 @@ using ReturnTypeFor =
     std::conditional_t<L == Length::Length8, uint8_t, std::conditional_t<L == Length::Length16, uint16_t, uint32_t>>;
 
 template <typename Config>
-class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength>> {
+class Crc final : public midsun::drivers::Crc<ReturnTypeFor<Config::kLength>> {
   static_assert(UnsignedIntegral<decltype(Config::kPoly)>);
   static_assert(UnsignedIntegral<decltype(Config::kInit)>);
   static_assert(IsValidLength(Config::kLength));
