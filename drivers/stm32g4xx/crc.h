@@ -2,6 +2,7 @@
 
 #include <bit>
 #include <concepts>
+#include <cstddef>
 #include <type_traits>
 
 #include "drivers/crc.h"
@@ -136,7 +137,7 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
     return crc;
   }
 
-  ReturnType Calculate(std::span<const uint8_t> data) noexcept override {
+  ReturnType Calculate(const std::span<const std::byte> data) noexcept override {
     // Cast uint8_t data to uint32_t data for HAL function type matching,
     // CRC_INPUTDATA_FORMAT_BYTES above ensures data gets casted back to uint8_t before being used
     const auto span_data = std::bit_cast<const uint32_t*>(data.data());
@@ -150,7 +151,7 @@ class Crc final : public midsun::drivers::crc::Crc<ReturnTypeFor<Config::kLength
   }
 
  private:
-  constexpr Crc(const CRC_HandleTypeDef& handle) : handle_(handle) {}
+  explicit constexpr Crc(const CRC_HandleTypeDef& handle) noexcept : handle_{handle} {}
 
   CRC_HandleTypeDef handle_;
 };
