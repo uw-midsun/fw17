@@ -25,8 +25,9 @@ constexpr bool IsValidInputInversionMode(const InputInversionMode& input_inversi
     case InputInversionMode::HalfWord:
     case InputInversionMode::Word:
       return true;
+    default:
+      return false;
   }
-  return false;
 }
 
 enum class OutputInversionMode {
@@ -39,8 +40,9 @@ constexpr bool IsValidOutputInversionMode(const OutputInversionMode& output_inve
     case OutputInversionMode::Enable:
     case OutputInversionMode::Disable:
       return true;
+    default:
+      return false;
   }
-  return false;
 }
 
 // Config standards based on AUTOSAR CRC Specs
