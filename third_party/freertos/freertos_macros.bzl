@@ -17,11 +17,11 @@ def freertos_config(name, config, target_compatible_with = []):
 
 def freertos_kernel(name, port_path, config, target_compatible_with = []):
     port_path = port_path.rstrip("/")
-    port_srcs = native.glob(["{path}/*.c".format(path = port_path)])
+    port_srcs = native.glob(["{path}/**/*.c".format(path = port_path)])
 
     kernel_hdrs = native.glob([
         "include/*.h",
-        "{path}/*.h".format(path = port_path),
+        "{path}/**/*.h".format(path = port_path),
     ])
 
     cc_library(

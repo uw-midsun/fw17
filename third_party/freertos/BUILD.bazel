@@ -3,19 +3,6 @@ load("//third_party/freertos:freertos_macros.bzl", "freertos_config")
 package(default_visibility = ["//visibility:public"])
 
 freertos_config(
-    name = "freertos_config_g4",
-    config = "FreeRTOSConfig_g4.h",
-    target_compatible_with = [
-        "@platforms//os:none",
-        "@platforms//cpu:armv7e-mf",
-    ],
-)
-
-freertos_config(
-    name = "freertos_config_u5",
-    config = "FreeRTOSConfig_u5.h",
-    target_compatible_with = [
-        "@platforms//os:none",
-        "@platforms//cpu:armv8-m",
-    ],
+    name = "freertos_config",
+    config = "FreeRTOSConfig.h",
 )

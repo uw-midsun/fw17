@@ -4,7 +4,7 @@ package(default_visibility = ["//visibility:public"])
 
 freertos_kernel(
     name = "freertos-g4",
-    config = "@@//third_party/freertos:freertos_config_g4",
+    config = "@@//third_party/freertos:freertos_config",
     port_path = "portable/GCC/ARM_CM4F",
     target_compatible_with = [
         "@platforms//os:none",
@@ -14,10 +14,19 @@ freertos_kernel(
 
 freertos_kernel(
     name = "freertos-u5",
-    config = "@@//third_party/freertos:freertos_config_u5",
+    config = "@@//third_party/freertos:freertos_config",
     port_path = "portable/GCC/ARM_CM33_NTZ/non_secure",
     target_compatible_with = [
         "@platforms//os:none",
         "@platforms//cpu:armv8-m",
+    ],
+)
+
+freertos_kernel(
+    name = "freertos-posix",
+    config = "@@//third_party/freertos:freertos_config",
+    port_path = "portable/ThirdParty/GCC/Posix",
+    target_compatible_with = [
+        "@platforms//os:linux",
     ],
 )
