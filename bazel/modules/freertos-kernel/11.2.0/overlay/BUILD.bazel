@@ -1,0 +1,23 @@
+load("@@//third_party/freertos:freertos_macros.bzl", "freertos_kernel")
+
+package(default_visibility = ["//visibility:public"])
+
+freertos_kernel(
+    name = "freertos-g4",
+    config = "@@//third_party/freertos:freertos_config_g4",
+    port_path = "portable/GCC/ARM_CM4F",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)
+
+freertos_kernel(
+    name = "freertos-u5",
+    config = "@@//third_party/freertos:freertos_config_u5",
+    port_path = "portable/GCC/ARM_CM33_NTZ/non_secure",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv8-m",
+    ],
+)
