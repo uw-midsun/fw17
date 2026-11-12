@@ -4,6 +4,6 @@
   "strip_prefix": "FreeRTOS-Kernel-11.2.0",
   "integrity": "sha256-4UjTpEKsdlLJmOCpMsTMKjxqv/ZqOgqWp2eMDNCS1Bw=",
   "overlay": {
-    "BUILD.bazel": "sha256-aUiJEkHHWcSeHp2nd/E+CS1l8vRnsvAeygwVq3TrrL8="
+    "BUILD.bazel": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
   }
 }
