@@ -17,19 +17,10 @@ def freertos_config(name, config, target_compatible_with = []):
 
 def freertos_kernel(name, port_path, config, target_compatible_with = []):
     port_path = port_path.rstrip("/")
-    port_name = "{name}_port".format(name = name)
     port_srcs = native.glob(["{path}/**/*.c".format(path = port_path)])
     port_hdrs = native.glob(["{path}/**/*.h".format(path = port_path)])
 
     kernel_hdrs = native.glob(["include/*.h"])
-
-    cc_library(
-        name = port_name,
-        hdrs = port_hdrs,
-        includes = [port_path],
-        target_compatible_with = target_compatible_with,
-    )
-
     cc_library(
         name = name,
         hdrs = kernel_hdrs,
@@ -47,7 +38,7 @@ def freertos_kernel(name, port_path, config, target_compatible_with = []):
             "stream_buffer.c",
             "tasks.c",
             "timers.c",
-        ] + port_srcs,
+        ] + port_srcs + port_hdrs,
         target_compatible_with = target_compatible_with,
-        deps = [config, port_name],
+        deps = [config],
     )
