@@ -53,7 +53,7 @@
  * settings.  Your application will certainly need a different value so set this
  * correctly. This is very often, but not always, equal to the main system clock
  * frequency. */
-#define configCPU_CLOCK_HZ ((unsigned long)20000000)
+#define configCPU_CLOCK_HZ ((unsigned long)16000000)  // TODO(LorenzoG): Break out into board specific configuration.
 
 /* configSYSTICK_CLOCK_HZ is an optional parameter for ARM Cortex-M ports only.
  *
@@ -77,19 +77,19 @@
 
 /* configTICK_RATE_HZ sets frequency of the tick interrupt in Hz, normally
  * calculated from the configCPU_CLOCK_HZ value. */
-#define configTICK_RATE_HZ 100
+#define configTICK_RATE_HZ 100  // TODO(LorenzoG): Break out into board specific configuration.
 
 /* Set configUSE_PREEMPTION to 1 to use pre-emptive scheduling.  Set
  * configUSE_PREEMPTION to 0 to use co-operative scheduling.
  * See https://www.freertos.org/single-core-amp-smp-rtos-scheduling.html. */
 #define configUSE_PREEMPTION 1
 
-/* Set configUSE_TIME_SLICING to 1 to have the scheduler switch between Ready
+/* Set configUSE_TIME_SLICINGto 1 to have the scheduler switch between Ready
  * state tasks of equal priority on every tick interrupt.  Set
  * configUSE_TIME_SLICING to 0 to prevent the scheduler switching between Ready
  * state tasks just because there was a tick interrupt.  See
  * https://freertos.org/single-core-amp-smp-rtos-scheduling.html. */
-#define configUSE_TIME_SLICING 0
+#define configUSE_TIME_SLICING 0  // TODO(LorenzoG): Discuss.
 
 /* Set configUSE_PORT_OPTIMISED_TASK_SELECTION to 1 to select the next task to
  * run using an algorithm optimised to the instruction set of the target
@@ -97,14 +97,14 @@
  * 0 to select the next task to run using a generic C algorithm that works for
  * all FreeRTOS ports.  Not all FreeRTOS ports have this option.  Defaults to 0
  * if left undefined. */
-#define configUSE_PORT_OPTIMISED_TASK_SELECTION 0
+#define configUSE_PORT_OPTIMISED_TASK_SELECTION 0  // TOOD(LorenzoG): Look into ports / impliment.
 
 /* Set configUSE_TICKLESS_IDLE to 1 to use the low power tickless mode.  Set to
  * 0 to keep the tick interrupt running at all times.  Not all FreeRTOS ports
  * support tickless mode. See
  * https://www.freertos.org/low-power-tickless-rtos.html Defaults to 0 if left
  * undefined. */
-#define configUSE_TICKLESS_IDLE 0
+#define configUSE_TICKLESS_IDLE 0  // Currently, we aren't doing any LP applications.
 
 /* configMAX_PRIORITIES Sets the number of available task priorities.  Tasks can
  * be assigned priorities of 0 to (configMAX_PRIORITIES - 1).  Zero is the
@@ -190,7 +190,7 @@
 /* If configHEAP_CLEAR_MEMORY_ON_FREE is set to 1, then blocks of memory
  * allocated using pvPortMalloc() will be cleared (i.e. set to zero) when freed
  * using vPortFree(). Defaults to 0 if left undefined. */
-#define configHEAP_CLEAR_MEMORY_ON_FREE 1
+#define configHEAP_CLEAR_MEMORY_ON_FREE 0  // We aren't mallocing.
 
 /* vTaskList and vTaskGetRunTimeStats APIs take a buffer as a parameter and
  * assume that the length of the buffer is configSTATS_BUFFER_MAX_LENGTH.
@@ -251,7 +251,7 @@
  * FreeRTOS/source/event_groups.c source file must be included in the build if
  * configUSE_EVENT_GROUPS is set to 1. Defaults to 1 if left undefined. */
 
-#define configUSE_EVENT_GROUPS 1
+#define configUSE_EVENT_GROUPS 0  // Enable if using event groups.
 
 /******************************************************************************/
 /* Stream Buffer related definitions. *****************************************/
@@ -262,7 +262,7 @@
  * FreeRTOS/source/stream_buffer.c source file must be included in the build if
  * configUSE_STREAM_BUFFERS is set to 1. Defaults to 1 if left undefined. */
 
-#define configUSE_STREAM_BUFFERS 1
+#define configUSE_STREAM_BUFFERS 1  // Not using stream buffers.
 
 /******************************************************************************/
 /* Memory allocation related definitions. *************************************/
@@ -281,7 +281,7 @@
  * dynamically allocated objects from the build.  Defaults to 1 if left
  * undefined.  See
  * https://www.freertos.org/Static_Vs_Dynamic_Memory_Allocation.html. */
-#define configSUPPORT_DYNAMIC_ALLOCATION 1
+#define configSUPPORT_DYNAMIC_ALLOCATION 0  // Disable dynamic allocation for now.
 
 /* Sets the total size of the FreeRTOS heap, in bytes, when heap_1.c, heap_2.c
  * or heap_4.c are included in the build.  This value is defaulted to 4096 bytes
@@ -323,7 +323,7 @@
  * to the highest interrupt priority (0).  Not supported by all FreeRTOS ports.
  * See https://www.freertos.org/RTOS-Cortex-M3-M4.html for information specific
  * to ARM Cortex-M devices. */
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY 0
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY 0  // TODO(LorenzoG): Set for drive inverter watchdog irqs.
 
 /* Another name for configMAX_SYSCALL_INTERRUPT_PRIORITY - the name used depends
  * on the FreeRTOS port. */
@@ -337,7 +337,7 @@
  * functionality in the build.  Set to 0 to exclude the hook functionality from
  * the build.  The application writer is responsible for providing the hook
  * function for any set to 1.  See https://www.freertos.org/a00016.html. */
-#define configUSE_IDLE_HOOK 0
+#define configUSE_IDLE_HOOK 1  // We want to toggle a pin in the idle hook.
 #define configUSE_TICK_HOOK 0
 #define configUSE_MALLOC_FAILED_HOOK 0
 #define configUSE_DAEMON_TASK_STARTUP_HOOK 0
