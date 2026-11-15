@@ -1,0 +1,10 @@
+package(default_visibility = ["//visibility:public"])
+
+sh_binary(
+    name = "run_debugger",
+    srcs = ["run_debugger.sh"],
+    env_inherit = [
+        "LOAD",
+        "OPENOCD_URL",
+    ],
+)
