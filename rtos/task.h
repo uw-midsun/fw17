@@ -32,7 +32,6 @@ concept TaskT = requires(T task) {
   { T::kPriority } -> std::same_as<const TaskPriority&>;
   // TODO(LorenzoG); String literal utility.
   { T::kName } -> std::same_as<const std::string_view&>;
-  { task.Init() } -> std::same_as<void>;
   { task.Run() } -> std::same_as<void>;
 };
 
@@ -59,8 +58,6 @@ class TaskWrapper {
  private:
   static void RunTask(void* params) noexcept {
     auto& task = *static_cast<Task*>(params);
-    task.Init();
-
     while(true) {
       task.Run();
       vTaskDelay(pdMS_TO_TICKS(task.kPeriod.count()));
