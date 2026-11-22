@@ -5,5 +5,5 @@ package(default_visibility = ["//visibility:public"])
 cc_library(
     name = "task",
     hdrs = ["task.h"],
-    deps = ["@freertos-kernel//:freertos-posix"],
+    deps = ["//third_party/freertos"],
 )

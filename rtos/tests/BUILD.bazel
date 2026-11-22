@@ -1,0 +1,20 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
+cc_library(
+    name = "freertos_test_hooks",
+    testonly = True,
+    srcs = ["freertos_test_hooks.cpp"],
+    linkstatic = True,
+    deps = ["//third_party/freertos"],
+    alwayslink = True,
+)
+
+cc_test(
+    name = "task_tests",
+    srcs = ["task_tests.cpp"],
+    deps = [
+        ":freertos_test_hooks",
+        "//rtos:task",
+        "@googletest//:gtest_main",
+    ],
+)

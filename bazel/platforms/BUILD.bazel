@@ -8,10 +8,42 @@ platform(
     ],
 )
 
+config_setting(
+    name = "is_stm32g4xx",
+    constraint_values = [
+        "@platforms//cpu:armv7e-mf",
+        "@platforms//os:none",
+    ],
+)
+
 platform(
     name = "stm32u5xx",
     constraint_values = [
         "@platforms//os:none",
         "@platforms//cpu:armv8-m",  # Cortex M-33 With FPU.
+    ],
+)
+
+config_setting(
+    name = "is_stm32u5xx",
+    constraint_values = [
+        "@platforms//cpu:armv8-m",
+        "@platforms//os:none",
+    ],
+)
+
+platform(
+    name = "x86_linux",
+    constraint_values = [
+        "@platforms//cpu:x86_64",
+        "@platforms//os:linux",
+    ],
+)
+
+config_setting(
+    name = "is_x86_linux",
+    constraint_values = [
+        "@platforms//cpu:x86_64",
+        "@platforms//os:linux",
     ],
 )
