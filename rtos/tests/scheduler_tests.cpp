@@ -59,7 +59,7 @@ struct SlowTask : CountingTask {
 
 }  // namespace
 
-TEST(SchedulerTest, RunsThreeTasksAtTheirOwnPeriodsUntilSlowestStopsIt) {
+TEST(SchedulerTest, Integration) {
   static constinit auto calls = CallCounts{};
   static auto executor = Scheduler{
       FastTask{calls.fast},

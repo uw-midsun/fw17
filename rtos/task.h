@@ -18,14 +18,11 @@ namespace private_ {
 
 template <std::size_t kBytes>
 consteval std::size_t StackSizeFromBytes() {
-  static_assert(kBytes % sizeof(StackType_t) == 0,
-                "Task stack size in bytes must be a multiple of sizeof(StackType_t)");
+  static_assert(kBytes % sizeof(StackType_t) == 0);
   return kBytes / sizeof(StackType_t);
 }
 
-}  // namespace detail
-
-
+}  // namespace private_
 
 enum class TaskPriority : std::size_t {
   Idle = 0,
@@ -38,7 +35,7 @@ enum class TaskPriority : std::size_t {
 static_assert(configMAX_PRIORITIES == 5);
 
 enum class StackSize : std::size_t {
-  Bytes512 =  private_::StackSizeFromBytes<512>(),
+  Bytes512 = private_::StackSizeFromBytes<512>(),
   Bytes1024 = private_::StackSizeFromBytes<1024>(),
   Bytes2048 = private_::StackSizeFromBytes<2048>(),
 };
@@ -46,7 +43,7 @@ enum class StackSize : std::size_t {
 template <typename T>
 concept TaskT = requires(T task) {
   { T::kPeriod } -> std::same_as<const std::chrono::milliseconds&>;
-  requires (T::kPeriod.count() > 0);
+  requires(T::kPeriod.count() > 0);
   { T::kStackSize } -> std::same_as<const StackSize&>;
   { T::kPriority } -> std::same_as<const TaskPriority&>;
   // TODO(LorenzoG); String literal utility.
@@ -64,7 +61,7 @@ class TaskWrapper {
     static constexpr auto kNameSize = Task::kName.size();
 
     // SAFTEY: FreeRTOS copies the name data into the task handle during task creation, so function local data is ok.
-    std::array<char, kNameSize + 1> task_name{};
+    const auto task_name = std::array<char, kNameSize + 1>{};
     std::ranges::copy_n(Task::kName.begin(), kNameSize, task_name.begin());
     task_name[kNameSize] = '\0';
 
@@ -78,7 +75,6 @@ class TaskWrapper {
   static constexpr TickType_t kPeriodTicks = pdMS_TO_TICKS(Task::kPeriod.count());
   static_assert(kPeriodTicks >= 1);
 
-  // The POSIX port unwinds this stack when a task is deleted.
   static void RunTask(void* params) {
     auto& task = *static_cast<Task*>(params);
     auto last_wake = xTaskGetTickCount();

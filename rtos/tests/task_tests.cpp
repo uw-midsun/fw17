@@ -40,7 +40,7 @@ struct TestTask {
 
 }  // namespace
 
-TEST(TaskWrapperTest, RunsTwiceWithConfiguredDelay) {
+TEST(TaskWrapperTest, Integration) {
   static auto run_count = std::size_t{0U};
   static auto task = TaskWrapper{TestTask{run_count}};
   task.Spawn();
