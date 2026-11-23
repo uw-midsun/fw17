@@ -6,3 +6,12 @@ freertos_config(
     name = "freertos_config",
     config = "FreeRTOSConfig.h",
 )
+
+alias(
+    name = "freertos",
+    actual = select({
+        "//bazel/platforms:is_stm32g4xx": "@freertos-kernel//:freertos-g4",
+        "//bazel/platforms:is_stm32u5xx": "@freertos-kernel//:freertos-u5",
+        "//bazel/platforms:is_x86_linux": "@freertos-kernel//:freertos-posix",
+    }),
+)

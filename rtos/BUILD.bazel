@@ -1,0 +1,30 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "task",
+    hdrs = ["task.h"],
+    deps = ["//third_party/freertos"],
+)
+
+cc_library(
+    name = "scheduler",
+    hdrs = ["scheduler.h"],
+    deps = [
+        ":task",
+        "//third_party/freertos",
+    ],
+)
+
+cc_library(
+    name = "testing",
+    testonly = True,
+    hdrs = ["testing.h"],
+    deps = [
+        ":scheduler",
+        ":task",
+        "//rtos/tests:freertos_test_hooks",
+        "//third_party/freertos",
+    ],
+)
