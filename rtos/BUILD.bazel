@@ -7,3 +7,28 @@ cc_library(
     hdrs = ["task.h"],
     deps = ["//third_party/freertos"],
 )
+
+cc_library(
+    name = "scheduler",
+    hdrs = ["scheduler.h"],
+    deps = [
+        ":task",
+        "//third_party/freertos",
+    ],
+)
+
+cc_library(
+    name = "testing",
+    testonly = True,
+    hdrs = ["testing.h"],
+    target_compatible_with = [
+        "@platforms//cpu:x86_64",
+        "@platforms//os:linux",
+    ],
+    deps = [
+        ":scheduler",
+        ":task",
+        "//rtos/tests:freertos_test_hooks",
+        "//third_party/freertos",
+    ],
+)

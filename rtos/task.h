@@ -78,7 +78,8 @@ class TaskWrapper {
   static constexpr TickType_t kPeriodTicks = pdMS_TO_TICKS(Task::kPeriod.count());
   static_assert(kPeriodTicks >= 1);
 
-  static void RunTask(void* params) noexcept {
+  // The POSIX port unwinds this stack when a task is deleted.
+  static void RunTask(void* params) {
     auto& task = *static_cast<Task*>(params);
     auto last_wake = xTaskGetTickCount();
     while(true) {

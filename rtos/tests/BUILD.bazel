@@ -5,6 +5,7 @@ cc_library(
     testonly = True,
     srcs = ["freertos_test_hooks.cpp"],
     linkstatic = True,
+    visibility = ["//rtos:__pkg__"],
     deps = ["//third_party/freertos"],
     alwayslink = True,
 )
@@ -16,6 +17,17 @@ cc_test(
     deps = [
         ":freertos_test_hooks",
         "//rtos:task",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "testing_tests",
+    timeout = "short",
+    srcs = ["testing_tests.cpp"],
+    deps = [
+        "//rtos:testing",
+        "//third_party/freertos",
         "@googletest//:gtest_main",
     ],
 )
