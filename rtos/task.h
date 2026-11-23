@@ -14,6 +14,18 @@
 #include "FreeRTOS/task.h"
 
 namespace midsun::rtos {
+namespace private_ {
+
+template <std::size_t kBytes>
+consteval std::size_t StackSizeFromBytes() {
+  static_assert(kBytes % sizeof(StackType_t) == 0,
+                "Task stack size in bytes must be a multiple of sizeof(StackType_t)");
+  return kBytes / sizeof(StackType_t);
+}
+
+}  // namespace detail
+
+
 
 enum class TaskPriority : std::size_t {
   Idle = 0,
@@ -25,10 +37,16 @@ enum class TaskPriority : std::size_t {
 };
 static_assert(configMAX_PRIORITIES == 5);
 
+enum class StackSize : std::size_t {
+  Bytes512 =  private_::StackSizeFromBytes<512>(),
+  Bytes1024 = private_::StackSizeFromBytes<1024>(),
+  Bytes2048 = private_::StackSizeFromBytes<2048>(),
+};
+
 template <typename T>
 concept TaskT = requires(T task) {
   { T::kPeriod } -> std::same_as<const std::chrono::milliseconds&>;
-  { T::kStackSize } -> std::same_as<const std::size_t&>;
+  { T::kStackSize } -> std::same_as<const StackSize&>;
   { T::kPriority } -> std::same_as<const TaskPriority&>;
   // TODO(LorenzoG); String literal utility.
   { T::kName } -> std::same_as<const std::string_view&>;
@@ -64,7 +82,8 @@ class TaskWrapper {
     }
   }
 
-  std::array<StackType_t, Task::kStackSize> task_stack_{};
+  static constexpr std::size_t kStackDepth = static_cast<std::size_t>(Task::kStackSize);
+  std::array<StackType_t, kStackDepth> task_stack_{};
   StaticTask_t task_control_block_{};
   Task task_object_;
 };
