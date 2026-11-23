@@ -46,6 +46,7 @@ enum class StackSize : std::size_t {
 template <typename T>
 concept TaskT = requires(T task) {
   { T::kPeriod } -> std::same_as<const std::chrono::milliseconds&>;
+  requires (T::kPeriod.count() > 0);
   { T::kStackSize } -> std::same_as<const StackSize&>;
   { T::kPriority } -> std::same_as<const TaskPriority&>;
   // TODO(LorenzoG); String literal utility.
@@ -74,12 +75,17 @@ class TaskWrapper {
   }
 
  private:
+  static constexpr TickType_t kPeriodTicks = pdMS_TO_TICKS(Task::kPeriod.count());
+  static_assert(kPeriodTicks >= 1);
+
   static void RunTask(void* params) noexcept {
     auto& task = *static_cast<Task*>(params);
+    auto last_wake = xTaskGetTickCount();
     while(true) {
       task.Run();
-      // TODO(LorenzoG): Figure out if 1 ms is a good minimum bound on task execution or if we need faster.
-      vTaskDelay(pdMS_TO_TICKS(task.kPeriod.count()));
+      // TODO(LorenzoG): Figure out if this should be DelayUntil or Wait for a full period.
+      // TODO(LorenzoG): Add like a watchdog / overrun handling ability.
+      std::ignore = xTaskDelayUntil(&last_wake, kPeriodTicks);
     }
   }
 
