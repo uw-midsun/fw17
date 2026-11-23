@@ -28,3 +28,16 @@ cc_library(
         "@stm32g4xx-hal-driver//:stm32g4xx_hal",
     ],
 )
+
+cc_library(
+    name = "crc",
+    hdrs = ["crc.h"],
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    deps = [
+        "//drivers:crc",
+        "@stm32g4xx-hal-driver//:stm32g4xx_hal",
+    ],
+)

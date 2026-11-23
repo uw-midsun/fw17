@@ -1,0 +1,13 @@
+{
+  "url": "https://github.com/STMicroelectronics/stm32u5xx-hal-driver/archive/refs/tags/v1.6.3.tar.gz",
+  "archive_type": "tar.gz",
+  "strip_prefix": "stm32u5xx-hal-driver-1.6.3",
+  "integrity": "sha256-D2GQarDDNNdpjLats/SonlF/kICTadaD8N//gSOBfRY=",
+  "overlay": {
+    "BUILD.bazel": "sha256-jQPSQO2MmwTzIlylREJmu57FIFCQ9bMKZidVZyMjae8="
+  },
+  "patches": {
+    "0001-fix-includes.patch": "sha256-R+IoK9kxfarJ/bdH7u/jyLBsPZziwT1cCTGZBzpv0Wk="
+  },
+  "patch_strip": 1
+}

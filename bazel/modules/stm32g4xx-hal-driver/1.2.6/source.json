@@ -4,11 +4,10 @@
   "strip_prefix": "stm32g4xx-hal-driver-1.2.6",
   "integrity": "sha256-x5yWD25g2TDbvmLjJNc7ZsjF6VMO2EkCO8EbKb8I/eE=",
   "overlay": {
-    "BUILD.bazel": "sha256-9NtUMG70owGlv73XX3Oan+sLMO2dZh12eEdXg4nqblU="
+    "BUILD.bazel": "sha256-H4HbCns0UheyrWUR8Mg9n1SHnOJ5k5lA2Kb9Xup3Y6g="
   },
   "patch_strip": 1,
   "patches": {
-    "0001-hal-conf.patch": "sha256-Q2biUo8PIcJi5I7JJJliTn3/W48iqPRW6CpWLppKa5k=",
-    "0002-fix-includes.patch": "sha256-z75eWb4gRiVZ2Umiizn0DsbULQ5zNlGBey7pdzk5tUo="
+    "0001-fix-includes.patch": "sha256-kqZvT4Qe7PeamL4gWRBYHKicWOtezQBtXEuaVNMwOeA="
   }
 }

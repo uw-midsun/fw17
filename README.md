@@ -10,6 +10,7 @@ This repository contains all firmware for the [University of Waterloo](https://u
 2. Run `nix develop ./nix` in the repository root.
 3. Run `bazel build //...`.
 
-### Convenience:
+### Recommended:
 
-Install [Direnv](https://direnv.net/), and run `direnv allow` in the repository root.
+- Run `./tools/git_hooks/install.sh` to install the pre-commit formatting hook.
+- Install [Direnv](https://direnv.net/), and run `direnv allow` in the repository root.

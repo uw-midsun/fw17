@@ -1,0 +1,23 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "stm32u5xx_hal",
+    srcs = glob(
+        ["Src/**/*.c"],
+        exclude = ["Src/**/*template*.c"],
+    ),
+    hdrs = glob(
+        ["Inc/**/*.h"],
+        exclude = ["Inc/**/*template*.h"],
+    ),
+    include_prefix = "stm32u5xx_hal",
+    includes = ["Inc"],
+    strip_include_prefix = "Inc",
+    deps = [
+        "@@//third_party/stm32u5:stm32u5xx_hal_conf",
+        "@@//third_party/stm32u5:system",
+        "@cmsis-device-u5//:system",
+    ],
+)

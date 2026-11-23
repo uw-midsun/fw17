@@ -1,0 +1,50 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
+cc_library(
+    name = "freertos_test_hooks",
+    testonly = True,
+    srcs = ["freertos_test_hooks.cpp"],
+    linkstatic = True,
+    visibility = ["//rtos:__pkg__"],
+    deps = ["//third_party/freertos"],
+    alwayslink = True,
+)
+
+cc_test(
+    name = "scheduler_tests",
+    timeout = "short",
+    srcs = ["scheduler_tests.cpp"],
+    target_compatible_with = [
+        "@platforms//cpu:x86_64",
+        "@platforms//os:linux",
+    ],
+    deps = [
+        ":freertos_test_hooks",
+        "//rtos:scheduler",
+        "//rtos:task",
+        "//third_party/freertos",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "task_tests",
+    timeout = "short",
+    srcs = ["task_tests.cpp"],
+    deps = [
+        ":freertos_test_hooks",
+        "//rtos:task",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "testing_tests",
+    timeout = "short",
+    srcs = ["testing_tests.cpp"],
+    deps = [
+        "//rtos:testing",
+        "//third_party/freertos",
+        "@googletest//:gtest_main",
+    ],
+)

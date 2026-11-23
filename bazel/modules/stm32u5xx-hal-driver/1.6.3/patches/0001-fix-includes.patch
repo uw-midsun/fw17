@@ -1,0 +1,1426 @@
+diff --git a/Inc/stm32u5xx_hal.h b/Inc/stm32u5xx_hal.h
+index a779890..b33531c 100644
+--- a/Inc/stm32u5xx_hal.h
++++ b/Inc/stm32u5xx_hal.h
+@@ -26,7 +26,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_conf.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_conf.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_adc.h b/Inc/stm32u5xx_hal_adc.h
+index 0e2ca2b..1e641a1 100644
+--- a/Inc/stm32u5xx_hal_adc.h
++++ b/Inc/stm32u5xx_hal_adc.h
+@@ -25,10 +25,10 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /* Include low level driver */
+-#include "stm32u5xx_ll_adc.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_adc.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -2324,7 +2324,7 @@ __LL_ADC_CALC_TEMPERATURE_TYP_PARAMS((__ADCx__), (__TEMPSENSOR_TYP_AVGSLOPE__),\
+   */
+ 
+ /* Include ADC HAL Extended module */
+-#include "stm32u5xx_hal_adc_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_adc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup ADC_Exported_Functions
+diff --git a/Inc/stm32u5xx_hal_adc_ex.h b/Inc/stm32u5xx_hal_adc_ex.h
+index 5183309..de4c682 100644
+--- a/Inc/stm32u5xx_hal_adc_ex.h
++++ b/Inc/stm32u5xx_hal_adc_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_comp.h b/Inc/stm32u5xx_hal_comp.h
+index 423a1c1..e4ef493 100644
+--- a/Inc/stm32u5xx_hal_comp.h
++++ b/Inc/stm32u5xx_hal_comp.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_cordic.h b/Inc/stm32u5xx_hal_cordic.h
+index 315b3b4..4962a09 100644
+--- a/Inc/stm32u5xx_hal_cordic.h
++++ b/Inc/stm32u5xx_hal_cordic.h
+@@ -26,7 +26,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(CORDIC)
+ /** @addtogroup STM32U5xx_HAL_Driver
+diff --git a/Inc/stm32u5xx_hal_cortex.h b/Inc/stm32u5xx_hal_cortex.h
+index 3c5bd14..185641d 100644
+--- a/Inc/stm32u5xx_hal_cortex.h
++++ b/Inc/stm32u5xx_hal_cortex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_crc.h b/Inc/stm32u5xx_hal_crc.h
+index a454b7f..353ed98 100644
+--- a/Inc/stm32u5xx_hal_crc.h
++++ b/Inc/stm32u5xx_hal_crc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -285,7 +285,7 @@ typedef struct
+   */
+ 
+ /* Include CRC HAL Extended module */
+-#include "stm32u5xx_hal_crc_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_crc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup CRC_Exported_Functions CRC Exported Functions
+diff --git a/Inc/stm32u5xx_hal_crc_ex.h b/Inc/stm32u5xx_hal_crc_ex.h
+index 89c5c44..d3e27e5 100644
+--- a/Inc/stm32u5xx_hal_crc_ex.h
++++ b/Inc/stm32u5xx_hal_crc_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_cryp.h b/Inc/stm32u5xx_hal_cryp.h
+index 7e763ea..82b98f8 100644
+--- a/Inc/stm32u5xx_hal_cryp.h
++++ b/Inc/stm32u5xx_hal_cryp.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -562,7 +562,7 @@ typedef  void (*pCRYP_CallbackTypeDef)(CRYP_HandleTypeDef *hcryp);    /*!< point
+   */
+ 
+ /* Include CRYP HAL Extended module */
+-#include "stm32u5xx_hal_cryp_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_cryp_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup CRYP_Exported_Functions CRYP Exported Functions
+diff --git a/Inc/stm32u5xx_hal_cryp_ex.h b/Inc/stm32u5xx_hal_cryp_ex.h
+index f1780e5..6655e42 100644
+--- a/Inc/stm32u5xx_hal_cryp_ex.h
++++ b/Inc/stm32u5xx_hal_cryp_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_dac.h b/Inc/stm32u5xx_hal_dac.h
+index bdd6bb9..4435fb5 100644
+--- a/Inc/stm32u5xx_hal_dac.h
++++ b/Inc/stm32u5xx_hal_dac.h
+@@ -29,7 +29,7 @@ extern "C" {
+   */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(DAC1)
+ 
+@@ -508,7 +508,7 @@ typedef void (*pDAC_CallbackTypeDef)(DAC_HandleTypeDef *hdac);
+   */
+ 
+ /* Include DAC HAL Extended module */
+-#include "stm32u5xx_hal_dac_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_dac_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ 
+diff --git a/Inc/stm32u5xx_hal_dac_ex.h b/Inc/stm32u5xx_hal_dac_ex.h
+index d9240a1..4dc859e 100644
+--- a/Inc/stm32u5xx_hal_dac_ex.h
++++ b/Inc/stm32u5xx_hal_dac_ex.h
+@@ -29,7 +29,7 @@ extern "C" {
+   */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(DAC1)
+ 
+diff --git a/Inc/stm32u5xx_hal_dcache.h b/Inc/stm32u5xx_hal_dcache.h
+index 6d5e8c6..78e1e64 100644
+--- a/Inc/stm32u5xx_hal_dcache.h
++++ b/Inc/stm32u5xx_hal_dcache.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes -----------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_dcmi.h b/Inc/stm32u5xx_hal_dcmi.h
+index 7c565b2..7c94f45 100644
+--- a/Inc/stm32u5xx_hal_dcmi.h
++++ b/Inc/stm32u5xx_hal_dcmi.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined (DCMI)
+ 
+diff --git a/Inc/stm32u5xx_hal_def.h b/Inc/stm32u5xx_hal_def.h
+index 5fac691..05a3523 100644
+--- a/Inc/stm32u5xx_hal_def.h
++++ b/Inc/stm32u5xx_hal_def.h
+@@ -31,7 +31,7 @@ extern "C" {
+ #endif /* __ARM_FEATURE_CMSE */
+ 
+ #include "stm32u5xx.h"
+-#include "Legacy/stm32_hal_legacy.h"  /* Aliases file for old names compatibility */
++#include "stm32u5xx_hal/Legacy/stm32_hal_legacy.h"  /* Aliases file for old names compatibility */
+ #include <stddef.h>
+ #include <math.h>
+ 
+diff --git a/Inc/stm32u5xx_hal_dma.h b/Inc/stm32u5xx_hal_dma.h
+index a15d4fe..6de9a21 100644
+--- a/Inc/stm32u5xx_hal_dma.h
++++ b/Inc/stm32u5xx_hal_dma.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ----------------------------------------------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -701,7 +701,7 @@ typedef struct __DMA_HandleTypeDef
+ 
+ 
+ /* Include DMA HAL Extension module */
+-#include "stm32u5xx_hal_dma_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_dma_ex.h"
+ 
+ 
+ /* Exported functions ------------------------------------------------------------------------------------------------*/
+diff --git a/Inc/stm32u5xx_hal_dma2d.h b/Inc/stm32u5xx_hal_dma2d.h
+index eb9c13d..aa6dcae 100644
+--- a/Inc/stm32u5xx_hal_dma2d.h
++++ b/Inc/stm32u5xx_hal_dma2d.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_dma_ex.h b/Inc/stm32u5xx_hal_dma_ex.h
+index ac6a09c..1db98c8 100644
+--- a/Inc/stm32u5xx_hal_dma_ex.h
++++ b/Inc/stm32u5xx_hal_dma_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ----------------------------------------------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_dsi.h b/Inc/stm32u5xx_hal_dsi.h
+index cbb6e35..77febfa 100644
+--- a/Inc/stm32u5xx_hal_dsi.h
++++ b/Inc/stm32u5xx_hal_dsi.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(DSI)
+ 
+diff --git a/Inc/stm32u5xx_hal_exti.h b/Inc/stm32u5xx_hal_exti.h
+index 5f0f165..ef7f969 100644
+--- a/Inc/stm32u5xx_hal_exti.h
++++ b/Inc/stm32u5xx_hal_exti.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_fdcan.h b/Inc/stm32u5xx_hal_fdcan.h
+index 0ddede4..05edc70 100644
+--- a/Inc/stm32u5xx_hal_fdcan.h
++++ b/Inc/stm32u5xx_hal_fdcan.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(FDCAN1)
+ 
+diff --git a/Inc/stm32u5xx_hal_flash.h b/Inc/stm32u5xx_hal_flash.h
+index 1c14753..fdd0935 100644
+--- a/Inc/stm32u5xx_hal_flash.h
++++ b/Inc/stm32u5xx_hal_flash.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -874,7 +874,7 @@ typedef struct
+   */
+ 
+ /* Include FLASH HAL Extended module */
+-#include "stm32u5xx_hal_flash_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_flash_ex.h"
+ 
+ 
+ /* Exported functions --------------------------------------------------------*/
+diff --git a/Inc/stm32u5xx_hal_flash_ex.h b/Inc/stm32u5xx_hal_flash_ex.h
+index 6add95a..837d9ae 100644
+--- a/Inc/stm32u5xx_hal_flash_ex.h
++++ b/Inc/stm32u5xx_hal_flash_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_fmac.h b/Inc/stm32u5xx_hal_fmac.h
+index 3641a3e..52b4def 100644
+--- a/Inc/stm32u5xx_hal_fmac.h
++++ b/Inc/stm32u5xx_hal_fmac.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(FMAC)
+ /** @addtogroup STM32U5xx_HAL_Driver
+diff --git a/Inc/stm32u5xx_hal_gfxmmu.h b/Inc/stm32u5xx_hal_gfxmmu.h
+index 0e7de3f..5289af4 100644
+--- a/Inc/stm32u5xx_hal_gfxmmu.h
++++ b/Inc/stm32u5xx_hal_gfxmmu.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(GFXMMU)
+ 
+diff --git a/Inc/stm32u5xx_hal_gfxtim.h b/Inc/stm32u5xx_hal_gfxtim.h
+index 8b57275..0555570 100644
+--- a/Inc/stm32u5xx_hal_gfxtim.h
++++ b/Inc/stm32u5xx_hal_gfxtim.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined (GFXTIM)
+ 
+diff --git a/Inc/stm32u5xx_hal_gpio.h b/Inc/stm32u5xx_hal_gpio.h
+index 61cdc0e..9345783 100644
+--- a/Inc/stm32u5xx_hal_gpio.h
++++ b/Inc/stm32u5xx_hal_gpio.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -332,7 +332,7 @@ typedef enum
+   */
+ 
+ /* Include GPIO HAL Extended module */
+-#include "stm32u5xx_hal_gpio_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_gpio_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup GPIO_Exported_Functions GPIO Exported Functions
+diff --git a/Inc/stm32u5xx_hal_gpio_ex.h b/Inc/stm32u5xx_hal_gpio_ex.h
+index c371047..febda01 100644
+--- a/Inc/stm32u5xx_hal_gpio_ex.h
++++ b/Inc/stm32u5xx_hal_gpio_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_gpu2d.h b/Inc/stm32u5xx_hal_gpu2d.h
+index a116c86..a415a24 100644
+--- a/Inc/stm32u5xx_hal_gpu2d.h
++++ b/Inc/stm32u5xx_hal_gpu2d.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_gtzc.h b/Inc/stm32u5xx_hal_gtzc.h
+index 10749e0..9398dc6 100644
+--- a/Inc/stm32u5xx_hal_gtzc.h
++++ b/Inc/stm32u5xx_hal_gtzc.h
+@@ -24,7 +24,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_hash.h b/Inc/stm32u5xx_hal_hash.h
+index 8a49e2e..5beadd1 100644
+--- a/Inc/stm32u5xx_hal_hash.h
++++ b/Inc/stm32u5xx_hal_hash.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -439,7 +439,7 @@ typedef  void (*pHASH_CallbackTypeDef)(HASH_HandleTypeDef *hhash);  /*!< pointer
+   */
+ 
+ /* Include HASH HAL Extended module */
+-#include "stm32u5xx_hal_hash_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_hash_ex.h"
+ /* Exported functions --------------------------------------------------------*/
+ 
+ /** @addtogroup HASH_Exported_Functions HASH Exported Functions
+diff --git a/Inc/stm32u5xx_hal_hash_ex.h b/Inc/stm32u5xx_hal_hash_ex.h
+index 869d278..7e56bba 100644
+--- a/Inc/stm32u5xx_hal_hash_ex.h
++++ b/Inc/stm32u5xx_hal_hash_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_hcd.h b/Inc/stm32u5xx_hal_hcd.h
+index 0489e17..aec1a88 100644
+--- a/Inc/stm32u5xx_hal_hcd.h
++++ b/Inc/stm32u5xx_hal_hcd.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_ll_usb.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_usb.h"
+ 
+ #if defined (USB_OTG_FS) || defined (USB_OTG_HS) || defined (USB_DRD_FS)
+ /** @addtogroup STM32U5xx_HAL_Driver
+diff --git a/Inc/stm32u5xx_hal_i2c.h b/Inc/stm32u5xx_hal_i2c.h
+index d37fb0e..9051da8 100644
+--- a/Inc/stm32u5xx_hal_i2c.h
++++ b/Inc/stm32u5xx_hal_i2c.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -591,7 +591,7 @@ typedef  void (*pI2C_AddrCallbackTypeDef)(I2C_HandleTypeDef *hi2c, uint8_t Trans
+   */
+ 
+ /* Include I2C HAL Extended module */
+-#include "stm32u5xx_hal_i2c_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_i2c_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup I2C_Exported_Functions
+diff --git a/Inc/stm32u5xx_hal_i2c_ex.h b/Inc/stm32u5xx_hal_i2c_ex.h
+index 19067fc..550068d 100644
+--- a/Inc/stm32u5xx_hal_i2c_ex.h
++++ b/Inc/stm32u5xx_hal_i2c_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_icache.h b/Inc/stm32u5xx_hal_icache.h
+index 2f200cc..0d90bc9 100644
+--- a/Inc/stm32u5xx_hal_icache.h
++++ b/Inc/stm32u5xx_hal_icache.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes -----------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(ICACHE)
+ /** @addtogroup STM32U5xx_HAL_Driver
+diff --git a/Inc/stm32u5xx_hal_irda.h b/Inc/stm32u5xx_hal_irda.h
+index bf306a0..98b3171 100644
+--- a/Inc/stm32u5xx_hal_irda.h
++++ b/Inc/stm32u5xx_hal_irda.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -798,7 +798,7 @@ typedef  void (*pIRDA_CallbackTypeDef)(IRDA_HandleTypeDef *hirda);  /*!< pointer
+   */
+ 
+ /* Include IRDA HAL Extended module */
+-#include "stm32u5xx_hal_irda_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_irda_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup IRDA_Exported_Functions IRDA Exported Functions
+diff --git a/Inc/stm32u5xx_hal_irda_ex.h b/Inc/stm32u5xx_hal_irda_ex.h
+index b8d6352..9af1c0e 100644
+--- a/Inc/stm32u5xx_hal_irda_ex.h
++++ b/Inc/stm32u5xx_hal_irda_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_iwdg.h b/Inc/stm32u5xx_hal_iwdg.h
+index 1b81856..9e737b6 100644
+--- a/Inc/stm32u5xx_hal_iwdg.h
++++ b/Inc/stm32u5xx_hal_iwdg.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_jpeg.h b/Inc/stm32u5xx_hal_jpeg.h
+index 40fc1c3..8fcd90c 100644
+--- a/Inc/stm32u5xx_hal_jpeg.h
++++ b/Inc/stm32u5xx_hal_jpeg.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined (JPEG)
+ 
+diff --git a/Inc/stm32u5xx_hal_lptim.h b/Inc/stm32u5xx_hal_lptim.h
+index 975a378..cafe5e9 100644
+--- a/Inc/stm32u5xx_hal_lptim.h
++++ b/Inc/stm32u5xx_hal_lptim.h
+@@ -25,10 +25,10 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /* Include low level driver */
+-#include "stm32u5xx_ll_lptim.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_lptim.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_ltdc.h b/Inc/stm32u5xx_hal_ltdc.h
+index 8a6f31c..cbd8b1b 100644
+--- a/Inc/stm32u5xx_hal_ltdc.h
++++ b/Inc/stm32u5xx_hal_ltdc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined (LTDC)
+ 
+@@ -542,7 +542,7 @@ typedef  void (*pLTDC_CallbackTypeDef)(LTDC_HandleTypeDef *hltdc);  /*!< pointer
+   */
+ 
+ /* Include LTDC HAL Extension module */
+-#include "stm32u5xx_hal_ltdc_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_ltdc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup LTDC_Exported_Functions
+diff --git a/Inc/stm32u5xx_hal_ltdc_ex.h b/Inc/stm32u5xx_hal_ltdc_ex.h
+index 64cfc19..9a4bfbe 100644
+--- a/Inc/stm32u5xx_hal_ltdc_ex.h
++++ b/Inc/stm32u5xx_hal_ltdc_ex.h
+@@ -25,13 +25,13 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined(HAL_LTDC_MODULE_ENABLED) && defined(HAL_DSI_MODULE_ENABLED)
+ 
+ #if defined (LTDC) && defined (DSI)
+ 
+-#include "stm32u5xx_hal_dsi.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_dsi.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_mdf.h b/Inc/stm32u5xx_hal_mdf.h
+index 6ee766a..8c84d1f 100644
+--- a/Inc/stm32u5xx_hal_mdf.h
++++ b/Inc/stm32u5xx_hal_mdf.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_mmc.h b/Inc/stm32u5xx_hal_mmc.h
+index 385cfc3..695516e 100644
+--- a/Inc/stm32u5xx_hal_mmc.h
++++ b/Inc/stm32u5xx_hal_mmc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_ll_sdmmc.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_sdmmc.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -644,7 +644,7 @@ typedef uint32_t HAL_MMC_PartitionTypeDef;
+   */
+ 
+ /* Include MMC HAL Extension module */
+-#include "stm32u5xx_hal_mmc_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_mmc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup MMC_Exported_Functions MMC Exported Functions
+diff --git a/Inc/stm32u5xx_hal_mmc_ex.h b/Inc/stm32u5xx_hal_mmc_ex.h
+index 3289331..c030b96 100644
+--- a/Inc/stm32u5xx_hal_mmc_ex.h
++++ b/Inc/stm32u5xx_hal_mmc_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_nand.h b/Inc/stm32u5xx_hal_nand.h
+index 557fb37..821560a 100644
+--- a/Inc/stm32u5xx_hal_nand.h
++++ b/Inc/stm32u5xx_hal_nand.h
+@@ -27,7 +27,7 @@ extern "C" {
+ #if defined(FMC_BANK3)
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_ll_fmc.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_fmc.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_nor.h b/Inc/stm32u5xx_hal_nor.h
+index 469ce91..02acb96 100644
+--- a/Inc/stm32u5xx_hal_nor.h
++++ b/Inc/stm32u5xx_hal_nor.h
+@@ -27,7 +27,7 @@ extern "C" {
+ #if defined(FMC_BANK1)
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_ll_fmc.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_fmc.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_opamp.h b/Inc/stm32u5xx_hal_opamp.h
+index 1ba5a29..097e6bd 100644
+--- a/Inc/stm32u5xx_hal_opamp.h
++++ b/Inc/stm32u5xx_hal_opamp.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -344,7 +344,7 @@ typedef void (*pOPAMP_CallbackTypeDef)(OPAMP_HandleTypeDef *hopamp);
+   */
+ 
+ /* Include OPAMP HAL Extended module */
+-#include "stm32u5xx_hal_opamp_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_opamp_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup OPAMP_Exported_Functions
+diff --git a/Inc/stm32u5xx_hal_opamp_ex.h b/Inc/stm32u5xx_hal_opamp_ex.h
+index 6b40eb9..ca970b5 100644
+--- a/Inc/stm32u5xx_hal_opamp_ex.h
++++ b/Inc/stm32u5xx_hal_opamp_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_ospi.h b/Inc/stm32u5xx_hal_ospi.h
+index 728fcb9..65a3f70 100644
+--- a/Inc/stm32u5xx_hal_ospi.h
++++ b/Inc/stm32u5xx_hal_ospi.h
+@@ -25,8 +25,8 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
+-#include "stm32u5xx_ll_dlyb.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_dlyb.h"
+ 
+ #if defined(OCTOSPI) || defined(OCTOSPI1) || defined(OCTOSPI2)
+ 
+diff --git a/Inc/stm32u5xx_hal_otfdec.h b/Inc/stm32u5xx_hal_otfdec.h
+index bf60973..6c1c4a2 100644
+--- a/Inc/stm32u5xx_hal_otfdec.h
++++ b/Inc/stm32u5xx_hal_otfdec.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_pcd.h b/Inc/stm32u5xx_hal_pcd.h
+index 65f3089..1351132 100644
+--- a/Inc/stm32u5xx_hal_pcd.h
++++ b/Inc/stm32u5xx_hal_pcd.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_ll_usb.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_usb.h"
+ 
+ #if defined (USB_OTG_FS) || defined (USB_OTG_HS) || defined (USB_DRD_FS)
+ 
+@@ -152,7 +152,7 @@ typedef struct
+   */
+ 
+ /* Include PCD HAL Extended module */
+-#include "stm32u5xx_hal_pcd_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_pcd_ex.h"
+ 
+ /* Exported constants --------------------------------------------------------*/
+ /** @defgroup PCD_Exported_Constants PCD Exported Constants
+diff --git a/Inc/stm32u5xx_hal_pcd_ex.h b/Inc/stm32u5xx_hal_pcd_ex.h
+index 60e75c0..c30d1cc 100644
+--- a/Inc/stm32u5xx_hal_pcd_ex.h
++++ b/Inc/stm32u5xx_hal_pcd_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif /* __cplusplus */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined (USB_OTG_FS) || defined (USB_OTG_HS) || defined (USB_DRD_FS)
+ /** @addtogroup STM32U5xx_HAL_Driver
+diff --git a/Inc/stm32u5xx_hal_pka.h b/Inc/stm32u5xx_hal_pka.h
+index 9e70493..3bdae39 100644
+--- a/Inc/stm32u5xx_hal_pka.h
++++ b/Inc/stm32u5xx_hal_pka.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_pssi.h b/Inc/stm32u5xx_hal_pssi.h
+index 3c6a660..13c7438 100644
+--- a/Inc/stm32u5xx_hal_pssi.h
++++ b/Inc/stm32u5xx_hal_pssi.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_pwr.h b/Inc/stm32u5xx_hal_pwr.h
+index c44722d..74456d0 100644
+--- a/Inc/stm32u5xx_hal_pwr.h
++++ b/Inc/stm32u5xx_hal_pwr.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif /* __cplusplus */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -731,7 +731,7 @@ typedef struct
+   */
+ 
+ /* Include PWR HAL Extended module */
+-#include "stm32u5xx_hal_pwr_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_pwr_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ 
+diff --git a/Inc/stm32u5xx_hal_pwr_ex.h b/Inc/stm32u5xx_hal_pwr_ex.h
+index 8086e6a..325763c 100644
+--- a/Inc/stm32u5xx_hal_pwr_ex.h
++++ b/Inc/stm32u5xx_hal_pwr_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif /* __cplusplus */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_ramcfg.h b/Inc/stm32u5xx_hal_ramcfg.h
+index d06704d..c0a5703 100644
+--- a/Inc/stm32u5xx_hal_ramcfg.h
++++ b/Inc/stm32u5xx_hal_ramcfg.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_rcc.h b/Inc/stm32u5xx_hal_rcc.h
+index 9bd5d73..f9d31fa 100644
+--- a/Inc/stm32u5xx_hal_rcc.h
++++ b/Inc/stm32u5xx_hal_rcc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -4781,7 +4781,7 @@ typedef struct
+   */
+ 
+ /* Include RCC HAL Extended module */
+-#include "stm32u5xx_hal_rcc_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_rcc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup RCC_Exported_Functions
+diff --git a/Inc/stm32u5xx_hal_rcc_ex.h b/Inc/stm32u5xx_hal_rcc_ex.h
+index dc7bf09..63f59d9 100644
+--- a/Inc/stm32u5xx_hal_rcc_ex.h
++++ b/Inc/stm32u5xx_hal_rcc_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_rng.h b/Inc/stm32u5xx_hal_rng.h
+index bb8836a..bbf7fc9 100644
+--- a/Inc/stm32u5xx_hal_rng.h
++++ b/Inc/stm32u5xx_hal_rng.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -285,7 +285,7 @@ typedef  void (*pRNG_ReadyDataCallbackTypeDef)(RNG_HandleTypeDef *hrng, uint32_t
+   */
+ 
+ /* Include RNG HAL Extended module */
+-#include "stm32u5xx_hal_rng_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_rng_ex.h"
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup RNG_Exported_Functions RNG Exported Functions
+   * @{
+diff --git a/Inc/stm32u5xx_hal_rng_ex.h b/Inc/stm32u5xx_hal_rng_ex.h
+index f3ad035..3394291 100644
+--- a/Inc/stm32u5xx_hal_rng_ex.h
++++ b/Inc/stm32u5xx_hal_rng_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_rtc.h b/Inc/stm32u5xx_hal_rtc.h
+index b81e33e..8f38d4a 100644
+--- a/Inc/stm32u5xx_hal_rtc.h
++++ b/Inc/stm32u5xx_hal_rtc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -754,7 +754,7 @@ typedef  void (*pRTC_CallbackTypeDef)(RTC_HandleTypeDef *hrtc);  /*!< pointer to
+   */
+ 
+ /* Include RTC HAL Extended module */
+-#include "stm32u5xx_hal_rtc_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_rtc_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup RTC_Exported_Functions RTC Exported Functions
+diff --git a/Inc/stm32u5xx_hal_rtc_ex.h b/Inc/stm32u5xx_hal_rtc_ex.h
+index 705a560..8187ece 100644
+--- a/Inc/stm32u5xx_hal_rtc_ex.h
++++ b/Inc/stm32u5xx_hal_rtc_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_sai.h b/Inc/stm32u5xx_hal_sai.h
+index 18a6935..a6bd48c 100644
+--- a/Inc/stm32u5xx_hal_sai.h
++++ b/Inc/stm32u5xx_hal_sai.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -736,7 +736,7 @@ typedef void (*pSAI_CallbackTypeDef)(SAI_HandleTypeDef *hsai);
+   */
+ 
+ /* Include SAI HAL Extension module */
+-#include "stm32u5xx_hal_sai_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_sai_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup SAI_Exported_Functions
+diff --git a/Inc/stm32u5xx_hal_sai_ex.h b/Inc/stm32u5xx_hal_sai_ex.h
+index 4a471e8..c493f77 100644
+--- a/Inc/stm32u5xx_hal_sai_ex.h
++++ b/Inc/stm32u5xx_hal_sai_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_sd.h b/Inc/stm32u5xx_hal_sd.h
+index bae7bc2..260157f 100644
+--- a/Inc/stm32u5xx_hal_sd.h
++++ b/Inc/stm32u5xx_hal_sd.h
+@@ -25,9 +25,9 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_ll_sdmmc.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_sdmmc.h"
+ #if defined (DLYB_SDMMC1) || defined (DLYB_SDMMC2) || defined (DLYB_SDMMC3)
+-#include "stm32u5xx_ll_dlyb.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_dlyb.h"
+ #endif /* (DLYB_SDMMC1) || (DLYB_SDMMC2) */
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+@@ -606,7 +606,7 @@ typedef void (*pSD_TransceiverCallbackTypeDef)(FlagStatus status);
+   */
+ 
+ /* Include SD HAL Extension module */
+-#include "stm32u5xx_hal_sd_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_sd_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @defgroup SD_Exported_Functions SD Exported Functions
+diff --git a/Inc/stm32u5xx_hal_sd_ex.h b/Inc/stm32u5xx_hal_sd_ex.h
+index cc2de07..9acd74d 100644
+--- a/Inc/stm32u5xx_hal_sd_ex.h
++++ b/Inc/stm32u5xx_hal_sd_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_sdio.h b/Inc/stm32u5xx_hal_sdio.h
+index 0e8da53..1ca610d 100644
+--- a/Inc/stm32u5xx_hal_sdio.h
++++ b/Inc/stm32u5xx_hal_sdio.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ----------------------------------------------------------------------------------------------------------*/
+-#include "stm32u5xx_ll_sdmmc.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_sdmmc.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_smartcard.h b/Inc/stm32u5xx_hal_smartcard.h
+index e18909b..23458ba 100644
+--- a/Inc/stm32u5xx_hal_smartcard.h
++++ b/Inc/stm32u5xx_hal_smartcard.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -1265,7 +1265,7 @@ typedef enum
+   */
+ 
+ /* Include SMARTCARD HAL Extended module */
+-#include "stm32u5xx_hal_smartcard_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_smartcard_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup SMARTCARD_Exported_Functions
+diff --git a/Inc/stm32u5xx_hal_smartcard_ex.h b/Inc/stm32u5xx_hal_smartcard_ex.h
+index 3f1d661..99aa99e 100644
+--- a/Inc/stm32u5xx_hal_smartcard_ex.h
++++ b/Inc/stm32u5xx_hal_smartcard_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_smbus.h b/Inc/stm32u5xx_hal_smbus.h
+index e100c02..3229887 100644
+--- a/Inc/stm32u5xx_hal_smbus.h
++++ b/Inc/stm32u5xx_hal_smbus.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -654,7 +654,7 @@ typedef  void (*pSMBUS_AddrCallbackTypeDef)(SMBUS_HandleTypeDef *hsmbus, uint8_t
+   */
+ 
+ /* Include SMBUS HAL Extended module */
+-#include "stm32u5xx_hal_smbus_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_smbus_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup SMBUS_Exported_Functions SMBUS Exported Functions
+diff --git a/Inc/stm32u5xx_hal_smbus_ex.h b/Inc/stm32u5xx_hal_smbus_ex.h
+index ff13f93..be39d9e 100644
+--- a/Inc/stm32u5xx_hal_smbus_ex.h
++++ b/Inc/stm32u5xx_hal_smbus_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_spi.h b/Inc/stm32u5xx_hal_spi.h
+index 24fa33d..b03274d 100644
+--- a/Inc/stm32u5xx_hal_spi.h
++++ b/Inc/stm32u5xx_hal_spi.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -810,7 +810,7 @@ typedef  void (*pSPI_CallbackTypeDef)(SPI_HandleTypeDef *hspi); /*!< pointer to
+ 
+ 
+ /* Include SPI HAL Extension module */
+-#include "stm32u5xx_hal_spi_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_spi_ex.h"
+ 
+ 
+ /* Exported functions --------------------------------------------------------*/
+diff --git a/Inc/stm32u5xx_hal_spi_ex.h b/Inc/stm32u5xx_hal_spi_ex.h
+index 5b3cdbc..ee31c6f 100644
+--- a/Inc/stm32u5xx_hal_spi_ex.h
++++ b/Inc/stm32u5xx_hal_spi_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_sram.h b/Inc/stm32u5xx_hal_sram.h
+index 5cf9ca8..f7f4048 100644
+--- a/Inc/stm32u5xx_hal_sram.h
++++ b/Inc/stm32u5xx_hal_sram.h
+@@ -27,7 +27,7 @@ extern "C" {
+ #if defined(FMC_BANK1)
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_ll_fmc.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_fmc.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_tim.h b/Inc/stm32u5xx_hal_tim.h
+index 96a6eb4..114b6a3 100644
+--- a/Inc/stm32u5xx_hal_tim.h
++++ b/Inc/stm32u5xx_hal_tim.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -2242,7 +2242,7 @@ mode.
+ /* End of private macros -----------------------------------------------------*/
+ 
+ /* Include TIM HAL Extended module */
+-#include "stm32u5xx_hal_tim_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_tim_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup TIM_Exported_Functions TIM Exported Functions
+diff --git a/Inc/stm32u5xx_hal_tim_ex.h b/Inc/stm32u5xx_hal_tim_ex.h
+index b800440..092d412 100644
+--- a/Inc/stm32u5xx_hal_tim_ex.h
++++ b/Inc/stm32u5xx_hal_tim_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_tsc.h b/Inc/stm32u5xx_hal_tsc.h
+index f5f2919..83ebefa 100644
+--- a/Inc/stm32u5xx_hal_tsc.h
++++ b/Inc/stm32u5xx_hal_tsc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+diff --git a/Inc/stm32u5xx_hal_uart.h b/Inc/stm32u5xx_hal_uart.h
+index 5bf89a2..7a85a45 100644
+--- a/Inc/stm32u5xx_hal_uart.h
++++ b/Inc/stm32u5xx_hal_uart.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -1589,7 +1589,7 @@ typedef  void (*pUART_RxEventCallbackTypeDef)
+   */
+ 
+ /* Include UART HAL Extended module */
+-#include "stm32u5xx_hal_uart_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_uart_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup UART_Exported_Functions UART Exported Functions
+diff --git a/Inc/stm32u5xx_hal_uart_ex.h b/Inc/stm32u5xx_hal_uart_ex.h
+index 3715f44..358ebd1 100644
+--- a/Inc/stm32u5xx_hal_uart_ex.h
++++ b/Inc/stm32u5xx_hal_uart_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_usart.h b/Inc/stm32u5xx_hal_usart.h
+index ba77e3f..59db6e1 100644
+--- a/Inc/stm32u5xx_hal_usart.h
++++ b/Inc/stm32u5xx_hal_usart.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+@@ -1034,7 +1034,7 @@ typedef  void (*pUSART_CallbackTypeDef)(USART_HandleTypeDef *husart);  /*!< poin
+   */
+ 
+ /* Include USART HAL Extended module */
+-#include "stm32u5xx_hal_usart_ex.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_usart_ex.h"
+ 
+ /* Exported functions --------------------------------------------------------*/
+ /** @addtogroup USART_Exported_Functions USART Exported Functions
+diff --git a/Inc/stm32u5xx_hal_usart_ex.h b/Inc/stm32u5xx_hal_usart_ex.h
+index 8888f2f..c234ff4 100644
+--- a/Inc/stm32u5xx_hal_usart_ex.h
++++ b/Inc/stm32u5xx_hal_usart_ex.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_wwdg.h b/Inc/stm32u5xx_hal_wwdg.h
+index 97eb5e9..23c1da6 100644
+--- a/Inc/stm32u5xx_hal_wwdg.h
++++ b/Inc/stm32u5xx_hal_wwdg.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_hal_xspi.h b/Inc/stm32u5xx_hal_xspi.h
+index ad4b892..797030c 100644
+--- a/Inc/stm32u5xx_hal_xspi.h
++++ b/Inc/stm32u5xx_hal_xspi.h
+@@ -25,8 +25,8 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
+-#include "stm32u5xx_ll_dlyb.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_ll_dlyb.h"
+ 
+ #if defined(HSPI) || defined(HSPI1) || defined(HSPI2)|| defined(OCTOSPI) || defined(OCTOSPI1)|| defined(OCTOSPI2)
+ 
+diff --git a/Inc/stm32u5xx_ll_dlyb.h b/Inc/stm32u5xx_ll_dlyb.h
+index 622f55f..27ddbb1 100644
+--- a/Inc/stm32u5xx_ll_dlyb.h
++++ b/Inc/stm32u5xx_ll_dlyb.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_LL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_ll_fmc.h b/Inc/stm32u5xx_ll_fmc.h
+index 917cec6..543ef14 100644
+--- a/Inc/stm32u5xx_ll_fmc.h
++++ b/Inc/stm32u5xx_ll_fmc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_HAL_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_ll_sdmmc.h b/Inc/stm32u5xx_ll_sdmmc.h
+index f8984ad..b0df109 100644
+--- a/Inc/stm32u5xx_ll_sdmmc.h
++++ b/Inc/stm32u5xx_ll_sdmmc.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ /** @addtogroup STM32U5xx_Driver
+   * @{
+diff --git a/Inc/stm32u5xx_ll_usb.h b/Inc/stm32u5xx_ll_usb.h
+index 6f7815b..9e1045c 100644
+--- a/Inc/stm32u5xx_ll_usb.h
++++ b/Inc/stm32u5xx_ll_usb.h
+@@ -25,7 +25,7 @@ extern "C" {
+ #endif /* __cplusplus */
+ 
+ /* Includes ------------------------------------------------------------------*/
+-#include "stm32u5xx_hal_def.h"
++#include "stm32u5xx_hal/stm32u5xx_hal_def.h"
+ 
+ #if defined (USB_OTG_FS) || defined (USB_OTG_HS) || defined (USB_DRD_FS)
+ /** @addtogroup STM32U5xx_HAL_Driver

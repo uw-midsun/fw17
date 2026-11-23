@@ -18,34 +18,50 @@
         };
     in
     {
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = buildNixpkgs system;
+      devShells = forAllSystems
+        (
+          system:
+          let
+            pkgs = buildNixpkgs system;
 
-          bazelisk-override = pkgs.bazelisk.overrideAttrs (old: {
-            checkPhase = "";
-            postInstall = (old.postInstall or "") + ''
-              ln -s $out/bin/bazelisk $out/bin/bazel
-            '';
-          });
-        in
-        {
-          default = pkgs.mkShell {
-            buildInputs = with pkgs; [
-              bazelisk-override
-              libtinfo
-              clang-tools
+            bazelisk-override = pkgs.bazelisk.overrideAttrs (old: {
+              checkPhase = "";
+              postInstall = (old.postInstall or "") + ''
+                ln -s $out/bin/bazelisk $out/bin/bazel
+              '';
+            });
 
-              treefmt
 
-              # Formatters:
-              bazel-buildtools
-              nixpkgs-fmt
-              prettier
-            ];
-          };
-        }
-      );
+            mkShell =
+              let
+                defaultPackages = with pkgs; [
+                  bazelisk-override
+                  libtinfo
+                  libxml2_13
+                  clang-tools
+
+                  treefmt
+
+                  # Formatters:
+                  bazel-buildtools
+                  nixpkgs-fmt
+                  prettier
+                  shellcheck
+                ];
+              in
+              extraPackages: pkgs.mkShell {
+                buildInputs = defaultPackages ++ extraPackages;
+                shellHook = ''
+                  export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [
+                    pkgs.libxml2_13
+                  ]}:''${LD_LIBRARY_PATH:-}"
+                '';
+              };
+          in
+          {
+            default = mkShell (with pkgs; [ gcc-arm-embedded-13 ]);
+            ci = mkShell [ ];
+          }
+        );
     };
 }
