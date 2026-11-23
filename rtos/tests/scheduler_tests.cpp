@@ -18,8 +18,8 @@ struct CallCounts {
 };
 
 struct CountingTask {
-  static constexpr StackSize kStackSize = StackSize::Bytes512;
-  static constexpr TaskPriority kPriority = TaskPriority::Low;
+  static constexpr auto kStackSize = StackSize::Bytes512;
+  static constexpr auto kPriority = TaskPriority::Low;
 
   explicit CountingTask(std::size_t& calls) : calls{calls} {}
 
@@ -30,22 +30,22 @@ struct CountingTask {
 
 // TODO(LorenzoG): Add string literal library.
 struct FastTask : CountingTask {
-  static constexpr std::string_view kName = "FastTask";
-  static constexpr std::chrono::milliseconds kPeriod{40};
+  static constexpr auto kName = std::string_view{"FastTask"};
+  static constexpr auto kPeriod = std::chrono::milliseconds{40};
 
   using CountingTask::CountingTask;
 };
 
 struct MediumTask : CountingTask {
-  static constexpr std::string_view kName = "MediumTask";
-  static constexpr std::chrono::milliseconds kPeriod{60};
+  static constexpr auto kName = std::string_view{"MediumTask"};
+  static constexpr auto kPeriod = std::chrono::milliseconds{60};
 
   using CountingTask::CountingTask;
 };
 
 struct SlowTask : CountingTask {
-  static constexpr std::string_view kName = "SlowTask";
-  static constexpr std::chrono::milliseconds kPeriod{140};
+  static constexpr auto kName = std::string_view{"SlowTask"};
+  static constexpr auto kPeriod = std::chrono::milliseconds{140};
 
   using CountingTask::CountingTask;
 

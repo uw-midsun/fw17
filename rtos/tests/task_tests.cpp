@@ -10,10 +10,10 @@ namespace midsun::rtos {
 namespace {
 
 struct TestTask {
-  static constexpr std::chrono::milliseconds kPeriod{10};
-  static constexpr StackSize kStackSize = StackSize::Bytes512;
-  static constexpr TaskPriority kPriority = TaskPriority::Low;
-  static constexpr std::string_view kName = "TestTask";
+  static constexpr auto kPeriod = std::chrono::milliseconds{10};
+  static constexpr auto kStackSize = StackSize::Bytes512;
+  static constexpr auto kPriority = TaskPriority::Low;
+  static constexpr auto kName = std::string_view{"TestTask"};
 
   explicit TestTask(std::size_t& run_count) : run_count_{run_count} {}
 
