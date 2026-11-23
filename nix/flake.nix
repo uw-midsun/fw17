@@ -37,6 +37,7 @@
                 defaultPackages = with pkgs; [
                   bazelisk-override
                   libtinfo
+                  libxml2
                   clang-tools
 
                   treefmt
