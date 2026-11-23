@@ -61,7 +61,7 @@ class TaskWrapper {
     static constexpr auto kNameSize = Task::kName.size();
 
     // SAFTEY: FreeRTOS copies the name data into the task handle during task creation, so function local data is ok.
-    const auto task_name = std::array<char, kNameSize + 1>{};
+    auto task_name = std::array<char, kNameSize + 1U>{};
     std::ranges::copy_n(Task::kName.begin(), kNameSize, task_name.begin());
     task_name[kNameSize] = '\0';
 

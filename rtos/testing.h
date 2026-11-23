@@ -1,9 +1,5 @@
 #pragma once
 
-#if defined(__linux__)
-#include <pthread.h>
-#endif
-
 #include <chrono>
 #include <concepts>
 #include <functional>
