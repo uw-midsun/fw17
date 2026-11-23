@@ -24,8 +24,10 @@ struct TestTask {
       return;
     }
 
+    const auto elapsed = now - first_run_time_;
     EXPECT_EQ(run_count_, 2U);
-    EXPECT_GE(now - first_run_time_, kPeriod);
+    EXPECT_GE(elapsed, kPeriod);
+    EXPECT_LE(elapsed, kPeriod + std::chrono::milliseconds{1});
     EXPECT_EQ(std::string_view{pcTaskGetName(nullptr)}, kName);
     EXPECT_EQ(uxTaskPriorityGet(nullptr), static_cast<UBaseType_t>(kPriority));
     vTaskEndScheduler();
