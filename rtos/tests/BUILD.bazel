@@ -11,6 +11,7 @@ cc_library(
 
 cc_test(
     name = "task_tests",
+    timeout = "short",
     srcs = ["task_tests.cpp"],
     deps = [
         ":freertos_test_hooks",

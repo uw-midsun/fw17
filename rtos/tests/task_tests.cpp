@@ -1,6 +1,7 @@
 #include "rtos/task.h"
 
 #include <chrono>
+#include <cstddef>
 #include <string_view>
 
 #include "gtest/gtest.h"
@@ -14,14 +15,34 @@ struct TestTask {
   static constexpr TaskPriority kPriority = TaskPriority::Low;
   static constexpr std::string_view kName = "TestTask";
 
-  void Run() {}
+  explicit TestTask(std::size_t& run_count) : run_count_{run_count} {}
+
+  void Run() {
+    const auto now = std::chrono::milliseconds{pdTICKS_TO_MS(xTaskGetTickCount())};
+    if (++run_count_ == 1U) {
+      first_run_time_ = now;
+      return;
+    }
+
+    EXPECT_EQ(run_count_, 2U);
+    EXPECT_GE(now - first_run_time_, kPeriod);
+    EXPECT_EQ(std::string_view{pcTaskGetName(nullptr)}, kName);
+    EXPECT_EQ(uxTaskPriorityGet(nullptr), static_cast<UBaseType_t>(kPriority));
+    vTaskEndScheduler();
+  }
+
+ private:
+  std::size_t& run_count_;
+  std::chrono::milliseconds first_run_time_{};
 };
 
 }  // namespace
 
-// TODO(LorenzoG): To improve coverage.
-TEST(TaskWrapperTest, ConstructsFromTestTask) {
-  EXPECT_NO_THROW(TaskWrapper{TestTask{}});
+TEST(TaskWrapperTest, RunsTwiceWithConfiguredDelay) {
+  static auto run_count = std::size_t{0U};
+  static auto task = TaskWrapper{TestTask{run_count}};
+  task.Spawn();
+  vTaskStartScheduler();
 }
 
 }  // namespace midsun::rtos
