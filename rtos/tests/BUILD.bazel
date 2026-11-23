@@ -11,6 +11,23 @@ cc_library(
 )
 
 cc_test(
+    name = "scheduler_tests",
+    timeout = "short",
+    srcs = ["scheduler_tests.cpp"],
+    target_compatible_with = [
+        "@platforms//cpu:x86_64",
+        "@platforms//os:linux",
+    ],
+    deps = [
+        ":freertos_test_hooks",
+        "//rtos:scheduler",
+        "//rtos:task",
+        "//third_party/freertos",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
     name = "task_tests",
     timeout = "short",
     srcs = ["task_tests.cpp"],
