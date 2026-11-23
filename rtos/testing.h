@@ -16,10 +16,10 @@ namespace private_ {
 template <typename Closure>
 class OneshotTask {
  public:
-  static constexpr std::chrono::milliseconds kPeriod{pdTICKS_TO_MS(1)};
-  static constexpr StackSize kStackSize = StackSize::Bytes2048;
-  static constexpr TaskPriority kPriority = TaskPriority::Low;
-  static constexpr std::string_view kName = "OneshotTask";
+  static constexpr auto kPeriod = std::chrono::milliseconds{pdTICKS_TO_MS(1)};
+  static constexpr auto kStackSize = StackSize::Bytes2048;
+  static constexpr auto kPriority = TaskPriority::Low;
+  static constexpr auto kName = std::string_view{"OneshotTask"};
 
   OneshotTask(Closure& closure, TaskHandle_t& handle) : closure_{closure}, handle_{handle} {}
 
