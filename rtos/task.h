@@ -78,6 +78,7 @@ class TaskWrapper {
     auto& task = *static_cast<Task*>(params);
     while(true) {
       task.Run();
+      // TODO(LorenzoG): Figure out if 1 ms is a good minimum bound on task execution or if we need faster.
       vTaskDelay(pdMS_TO_TICKS(task.kPeriod.count()));
     }
   }
