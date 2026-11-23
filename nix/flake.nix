@@ -37,7 +37,7 @@
                 defaultPackages = with pkgs; [
                   bazelisk-override
                   libtinfo
-                  libxml2
+                  libxml2_13
                   clang-tools
 
                   treefmt
@@ -51,6 +51,11 @@
               in
               extraPackages: pkgs.mkShell {
                 buildInputs = defaultPackages ++ extraPackages;
+                shellHook = ''
+                  export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [
+                    pkgs.libxml2_13
+                  ]}:''${LD_LIBRARY_PATH:-}"
+                '';
               };
           in
           {
